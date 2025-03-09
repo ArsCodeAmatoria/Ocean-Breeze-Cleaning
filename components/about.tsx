@@ -18,11 +18,13 @@ const About = () => {
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-xl z-0"></div>
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-accent/20 rounded-full blur-xl z-0"></div>
             <div className="relative z-10 rounded-xl overflow-hidden shadow-xl">
-              {/* Replace with your own image */}
-              <div className="aspect-w-4 aspect-h-3 w-full h-96 relative bg-gray-200">
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  Cleaning professional image
-                </div>
+              <div className="aspect-w-4 aspect-h-3 w-full h-96 relative">
+                <Image 
+                  src="/images/science.jpg" 
+                  alt="Scientific approach to cleaning" 
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </motion.div>
