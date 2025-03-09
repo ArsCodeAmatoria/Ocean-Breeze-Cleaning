@@ -54,8 +54,10 @@ const AboutPage = () => {
         backgroundColor: 'rgba(0, 123, 255, 0.4)',
         borderColor: 'rgba(0, 123, 255, 1)',
         borderWidth: 2,
-        tension: 0.4,
+        tension: 0.3,
         fill: true,
+        cubicInterpolationMode: 'monotone' as const,
+        spanGaps: true,
       },
     ],
   };
