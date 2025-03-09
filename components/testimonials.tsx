@@ -7,24 +7,21 @@ const testimonials = [
     id: 1,
     name: 'Emily Johnson',
     role: 'Homeowner',
-    content:
-      'Since switching to Ocean Breeze Cleaning, my family has experienced fewer allergy symptoms and sick days. Their attention to detail and focus on health has made a noticeable difference in our home environment.',
+    content: 'Since switching to Ocean Breeze Cleaning, my family has experienced fewer allergy symptoms and sick days. Their attention to detail and focus on health has made a noticeable difference in our home environment.',
     rating: 5,
   },
   {
     id: 2,
     name: 'Michael Rodriguez',
     role: 'Office Manager',
-    content:
-      'The data they shared about workplace germs was eye-opening. After implementing their regular cleaning schedule, employee sick days dropped by 22% in just three months. The investment pays for itself.',
+    content: 'The data they shared about workplace germs was eye-opening. After implementing their regular cleaning schedule, employee sick days dropped by 22% in just three months. The investment pays for itself.',
     rating: 5,
   },
   {
     id: 3,
     name: 'Sarah Thompson',
     role: 'Parent of Two',
-    content:
-      'As a mother of two young children, I appreciate their use of eco-friendly products that effectively kill germs without harmful chemicals. My pediatrician has even noticed a difference in my children's respiratory health.',
+    content: `As a mother of two young children, I appreciate their use of eco-friendly products that effectively kill germs without harmful chemicals. My pediatrician has even noticed a difference in my children's respiratory health.`,
     rating: 5,
   },
 ];
