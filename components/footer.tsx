@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="mb-4">
               <div className="flex items-center">
-                <div className="text-2xl font-bold text-white">Breezify</div>
+                <div className="text-2xl font-bold text-white">Ocean Breeze</div>
                 <div className="ml-1 text-xs px-1.5 py-0.5 bg-white/20 text-white rounded">
                   .me
                 </div>
@@ -119,7 +119,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="text-center text-neutral-light text-sm">
-          <p>© {new Date().getFullYear()} Breezify. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning. All rights reserved.</p>
           <p className="mt-2">
             <Link href="#" className="hover:text-cyan-300 transition">Privacy Policy</Link>
             {' | '}

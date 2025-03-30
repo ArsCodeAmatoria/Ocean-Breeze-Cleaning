@@ -1,6 +1,6 @@
-# Breezify
+# Ocean Breeze Cleaning
 
-A modern web application for Breezify that showcases data analysis on how frequent cleaning reduces bacteria, germs, viruses, infections, diseases, and improves health and air quality.
+A modern web application for Ocean Breeze Cleaning that showcases data analysis on how frequent cleaning reduces bacteria, germs, viruses, infections, diseases, and improves health and air quality.
 
 ## Features
 

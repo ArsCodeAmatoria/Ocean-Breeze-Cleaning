@@ -27,7 +27,7 @@ const Hero = () => {
                 transition={{ duration: 0.6 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
               >
-                <span className="text-white drop-shadow-lg">Breezify</span>
+                <span className="text-white drop-shadow-lg">Ocean Breeze</span>
                 <br />
                 <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">Your Space</span>
               </motion.h1>
