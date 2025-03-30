@@ -1,6 +1,10 @@
 import React from 'react';
-import { Droplet, Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the AnimatedLogo component with no SSR
+const AnimatedLogo = dynamic(() => import('./AnimatedLogo'), { ssr: false });
 
 const Footer = () => {
   return (
@@ -10,8 +14,10 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <Droplet className="h-8 w-8 text-accent" />
-              <span className="ml-2 text-xl font-bold">Ocean Breeze Cleaning</span>
+              <div className="mr-2">
+                <AnimatedLogo size={40} />
+              </div>
+              <span className="ml-1 text-xl font-bold">Ocean Breeze Cleaning</span>
             </div>
             <p className="text-neutral-light mb-2">
               Professional cleaning services with a focus on health, backed by scientific research on bacteria, germs, and air quality.

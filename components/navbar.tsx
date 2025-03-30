@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Droplet, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the AnimatedLogo component with no SSR to avoid hydration issues
+const AnimatedLogo = dynamic(() => import('./AnimatedLogo'), { ssr: false });
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -15,8 +19,10 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Droplet className="h-8 w-8 text-primary" />
-              <div className="ml-2">
+              <div className="mr-2">
+                <AnimatedLogo size={50} />
+              </div>
+              <div className="ml-1">
                 <span className="text-xl font-bold text-primary">Ocean Breeze Cleaning</span>
                 <div className="text-xs text-neutral-DEFAULT">by Karla Figueroa Zuniga</div>
               </div>
