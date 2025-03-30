@@ -133,9 +133,9 @@ const About = () => {
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-md">
                     <Award className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-neutral-dark mb-2">Certified Professional</h3>
+                  <h3 className="font-semibold text-neutral-dark mb-2">Health-Focused Approach</h3>
                   <p className="text-sm text-neutral-DEFAULT">
-                    I hold certifications in advanced cleaning techniques and chemical safety protocols.
+                    I specialize in cleaning techniques that promote health and wellness in your space.
                   </p>
                 </motion.div>
                 

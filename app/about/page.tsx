@@ -166,7 +166,7 @@ const AboutPage = () => {
               transition={{ duration: 0.5 }}
               className="inline-block text-white text-lg md:text-xl font-medium uppercase tracking-wider mb-3"
             >
-              About Ocean Breeze Cleaning
+              About Breezify
             </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: -20 }}
@@ -251,7 +251,7 @@ const AboutPage = () => {
                     <span className="text-blue-600 font-bold text-xl mb-2 block">2023</span>
                     <h3 className="text-2xl font-semibold text-neutral-dark mb-3">The Beginning</h3>
                     <p className="text-neutral-DEFAULT">
-                      Founded Ocean Breeze Cleaning with a passion for creating clean, healthy living spaces and a mission 
+                      Founded Breezify with a passion for creating clean, healthy living spaces and a mission 
                       to provide services that go beyond appearance.
                     </p>
                   </div>
@@ -508,7 +508,7 @@ const AboutPage = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">My Environmental Commitment</h2>
               <p className="text-lg text-neutral-DEFAULT mb-6">
-                At Ocean Breeze Cleaning, I believe that effective cleaning shouldn't harm the planet. I'm committed to sustainable practices that reduce environmental footprint while delivering exceptional results.
+                At Breezify, I believe that effective cleaning shouldn't harm the planet. I'm committed to sustainable practices that reduce environmental footprint while delivering exceptional results.
               </p>
               <p className="text-lg text-neutral-DEFAULT mb-6">
                 From the products I use to the methods I employ, environmental sustainability is a core consideration in all my operations.

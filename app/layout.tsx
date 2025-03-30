@@ -6,20 +6,20 @@ import React from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Ocean Breeze Cleaning | Health-Focused Cleaning Services',
+  title: 'Breezify | Health-Focused Cleaning Services',
   description: 'Discover how frequent professional cleaning reduces bacteria, germs, viruses, and improves health and air quality. Science-backed cleaning services for healthier homes and workplaces.',
   keywords: 'cleaning services, bacteria reduction, germ removal, healthy home, air quality improvement, professional cleaning, sanitization, eco-friendly cleaning',
-  authors: [{ name: 'Ocean Breeze Cleaning' }],
+  authors: [{ name: 'Breezify' }],
   icons: {
     icon: [
       { url: '/favicon.ico' },
     ],
   },
   openGraph: {
-    title: 'Ocean Breeze Cleaning | Health-Focused Cleaning Services',
+    title: 'Breezify | Health-Focused Cleaning Services',
     description: 'Science-backed cleaning services for healthier homes and workplaces.',
-    url: 'https://oceanbreezecleaning.com',
-    siteName: 'Ocean Breeze Cleaning',
+    url: 'https://breezify.me',
+    siteName: 'Breezify',
     locale: 'en_US',
     type: 'website',
   },

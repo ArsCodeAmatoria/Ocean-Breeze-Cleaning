@@ -15,8 +15,8 @@ const Founder = () => {
   const achievements = [
     {
       icon: <Award className="h-12 w-12 text-cyan-500" />,
-      title: "Master Cleaner Certification",
-      description: "Certified in advanced cleaning techniques and protocols"
+      title: "Health-Focused Cleaning",
+      description: "Specialized in creating healthier living environments"
     },
     {
       icon: <Scroll className="h-12 w-12 text-cyan-500" />,
@@ -52,7 +52,7 @@ const Founder = () => {
             viewport={{ once: true }}
             className="inline-block text-cyan-600 text-sm uppercase tracking-wider font-medium mb-2"
           >
-            The Face Behind Ocean Breeze
+            The Face Behind Breezify
           </motion.span>
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
             Meet <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Karla Figueroa Zuniga</span>
@@ -100,7 +100,7 @@ const Founder = () => {
                 </div>
                 
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-900/80 to-transparent p-4 text-center">
-                  <div className="text-white text-lg font-medium">Ocean Breeze Cleaning</div>
+                  <div className="text-white text-lg font-medium">Breezify</div>
                   <div className="text-cyan-100 text-sm">Founder & CEO</div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const Founder = () => {
                   <div className="text-lg text-white font-bold">"</div>
                 </div>
                 <p className="text-lg italic text-neutral-DEFAULT pl-6">
-                  "I founded Ocean Breeze Cleaning with a clear mission: to transform the conventional approach to cleaning services. For me, cleaning isn't just about appearances—it's fundamentally about creating healthier living and working environments."
+                  "I founded Breezify with a clear mission: to transform the conventional approach to cleaning services. For me, cleaning isn't just about appearances—it's fundamentally about creating healthier living and working environments."
                 </p>
               </motion.div>
               

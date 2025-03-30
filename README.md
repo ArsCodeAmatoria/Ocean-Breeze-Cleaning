@@ -1,6 +1,6 @@
-# Ocean Breeze Cleaning
+# Breezify
 
-A modern web application for Ocean Breeze Cleaning that showcases data analysis on how frequent cleaning reduces bacteria, germs, viruses, infections, diseases, and improves health and air quality.
+A modern web application for Breezify that showcases data analysis on how frequent cleaning reduces bacteria, germs, viruses, infections, diseases, and improves health and air quality.
 
 ## Features
 
@@ -37,8 +37,8 @@ A modern web application for Ocean Breeze Cleaning that showcases data analysis 
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/ocean-breeze-cleaning.git
-cd ocean-breeze-cleaning
+git clone https://github.com/yourusername/breezify.git
+cd breezify
 ```
 
 2. Install dependencies

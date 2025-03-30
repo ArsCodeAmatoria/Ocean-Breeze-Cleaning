@@ -10,12 +10,15 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                Ocean Breeze Cleaning
-              </span>
+              <div className="flex items-center">
+                <div className="text-2xl font-bold text-white">Breezify</div>
+                <div className="ml-1 text-xs px-1.5 py-0.5 bg-white/20 text-white rounded">
+                  .me
+                </div>
+              </div>
             </div>
             <p className="text-neutral-light mb-2">
-              Professional cleaning services with a focus on health, backed by scientific research on bacteria, germs, and air quality.
+              Professional cleaning services enhanced with aromatherapy for healthier and more rejuvenating spaces.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white hover:text-cyan-300 transition">
@@ -88,7 +91,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-cyan-300 mr-3" />
-                <p className="text-neutral-light">info@oceanbreezecleaning.com</p>
+                <p className="text-neutral-light">info@breezify.me</p>
               </div>
             </div>
           </div>
@@ -116,7 +119,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="text-center text-neutral-light text-sm">
-          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Breezify. All rights reserved.</p>
           <p className="mt-2">
             <Link href="#" className="hover:text-cyan-300 transition">Privacy Policy</Link>
             {' | '}
