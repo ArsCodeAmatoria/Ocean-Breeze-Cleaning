@@ -33,7 +33,7 @@ ChartJS.register(
 );
 
 // Custom tooltip style
-ChartJS.defaults.plugins.tooltip.backgroundColor = 'rgba(0, 123, 255, 0.8)';
+ChartJS.defaults.plugins.tooltip.backgroundColor = 'rgba(0, 150, 199, 0.8)';
 ChartJS.defaults.plugins.tooltip.titleFont = { weight: 'bold', size: 14 };
 ChartJS.defaults.plugins.tooltip.padding = 12;
 ChartJS.defaults.plugins.tooltip.cornerRadius = 8;
@@ -54,15 +54,15 @@ const DataAnalysis = () => {
           {
             label: 'Bacteria Levels with Weekly Cleaning',
             data: [100, 42, 28, 15, 10, 5],
-            borderColor: '#007BFF',
-            backgroundColor: 'rgba(0, 123, 255, 0.1)',
+            borderColor: '#0096c7',
+            backgroundColor: 'rgba(0, 150, 199, 0.1)',
             borderWidth: 3,
             tension: 0.3,
             pointRadius: 4,
             pointHoverRadius: 6,
             pointBackgroundColor: '#fff',
-            pointHoverBackgroundColor: '#007BFF',
-            pointBorderColor: '#007BFF',
+            pointHoverBackgroundColor: '#0096c7',
+            pointBorderColor: '#0096c7',
             pointBorderWidth: 2,
             pointHitRadius: 10,
             cubicInterpolationMode: 'monotone' as const,
@@ -95,17 +95,17 @@ const DataAnalysis = () => {
         labels: ['Day 1', 'Day 3', 'Day 7', 'Day 14', 'Day 21', 'Day 30'],
         datasets: [
           {
-            label: 'Bacteria Levels with Professional Cleaning',
+            label: 'Bacteria Levels with My Professional Cleaning',
             data: [100, 20, 15, 12, 10, 8],
-            borderColor: '#007BFF',
-            backgroundColor: 'rgba(0, 123, 255, 0.1)',
+            borderColor: '#0096c7',
+            backgroundColor: 'rgba(0, 150, 199, 0.1)',
             borderWidth: 3,
             tension: 0.3,
             pointRadius: 4,
             pointHoverRadius: 6,
             pointBackgroundColor: '#fff',
-            pointHoverBackgroundColor: '#007BFF',
-            pointBorderColor: '#007BFF',
+            pointHoverBackgroundColor: '#0096c7',
+            pointBorderColor: '#0096c7',
             pointBorderWidth: 2,
             pointHitRadius: 10,
             cubicInterpolationMode: 'monotone' as const,
@@ -130,7 +130,7 @@ const DataAnalysis = () => {
           },
         ],
       },
-      description: "Professional cleaning techniques and equipment remove up to 92% of bacteria initially and maintain low levels, while DIY methods typically achieve only a 50% reduction."
+      description: "My professional cleaning techniques and equipment remove up to 92% of bacteria initially and maintain low levels, while DIY methods typically achieve only a 50% reduction."
     },
   ];
 
@@ -146,23 +146,23 @@ const DataAnalysis = () => {
     ],
     datasets: [
       {
-        label: 'Percentage Reduction After Professional Cleaning',
+        label: 'Percentage Reduction After My Professional Cleaning',
         data: [90, 85, 80, 92, 88, 75],
         backgroundColor: [
-          'rgba(0, 123, 255, 0.8)',
-          'rgba(0, 174, 239, 0.8)',
-          'rgba(30, 144, 255, 0.8)',
-          'rgba(40, 167, 69, 0.8)',
-          'rgba(50, 205, 50, 0.8)',
-          'rgba(255, 193, 7, 0.8)',
+          'rgba(0, 150, 199, 0.8)',
+          'rgba(72, 202, 228, 0.8)',
+          'rgba(144, 224, 239, 0.8)',
+          'rgba(0, 180, 216, 0.8)',
+          'rgba(56, 189, 248, 0.8)',
+          'rgba(103, 232, 249, 0.8)',
         ],
         borderColor: [
-          'rgba(0, 123, 255, 1)',
-          'rgba(0, 174, 239, 1)',
-          'rgba(30, 144, 255, 1)',
-          'rgba(40, 167, 69, 1)',
-          'rgba(50, 205, 50, 1)',
-          'rgba(255, 193, 7, 1)',
+          'rgba(0, 150, 199, 1)',
+          'rgba(72, 202, 228, 1)',
+          'rgba(144, 224, 239, 1)',
+          'rgba(0, 180, 216, 1)',
+          'rgba(56, 189, 248, 1)',
+          'rgba(103, 232, 249, 1)',
         ],
         borderWidth: 2,
         hoverOffset: 15,
@@ -332,7 +332,7 @@ const DataAnalysis = () => {
   };
 
   return (
-    <section id="data" className="py-20 bg-gray-50">
+    <section id="data" className="py-20 bg-gradient-to-b from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -341,13 +341,114 @@ const DataAnalysis = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
-            The Science of Clean
-          </h2>
-          <p className="text-lg text-neutral-DEFAULT max-w-3xl mx-auto">
-            Our data analysis shows how regular professional cleaning dramatically reduces harmful bacteria
-            and improves overall health and wellbeing.
-          </p>
+          <div className="flex flex-col md:flex-row items-center mb-8">
+            <div className="md:w-1/2 md:pr-8 mb-6 md:mb-0">
+              <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-block text-cyan-600 text-sm uppercase tracking-wider font-medium mb-2"
+              >
+                Research-Backed Results
+              </motion.span>
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+                The <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Science</span> Behind Clean Spaces
+              </h2>
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                whileInView={{ opacity: 1, width: "120px" }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="h-1 bg-cyan-500/60 mx-auto md:mx-0 mb-5"
+              />
+              <p className="text-lg text-neutral-DEFAULT">
+                Explore the data demonstrating how my professional cleaning approach directly impacts health and well-being.
+              </p>
+            </div>
+            <div className="md:w-1/2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-blue-500/20 rounded-full blur-xl z-0"></div>
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-cyan-400/20 rounded-full blur-xl z-0"></div>
+                <div className="relative bg-white rounded-xl overflow-hidden shadow-lg p-8 z-10">
+                  <div className="flex flex-col items-center">
+                    <div className="text-6xl font-bold text-blue-600 mb-2">92%</div>
+                    <div className="text-xl font-medium text-neutral-dark mb-4 text-center">Reduction in harmful bacteria after professional cleaning</div>
+                    <div className="w-full bg-gray-100 h-3 rounded-full mb-6">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "92%" }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-r from-blue-600 to-cyan-500 h-3 rounded-full"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 w-full">
+                      <div className="bg-blue-50 p-3 rounded-lg text-center">
+                        <div className="text-2xl font-bold text-blue-600">65%</div>
+                        <div className="text-sm text-neutral-DEFAULT">Fewer allergy symptoms</div>
+                      </div>
+                      <div className="bg-cyan-50 p-3 rounded-lg text-center">
+                        <div className="text-2xl font-bold text-cyan-600">45%</div>
+                        <div className="text-sm text-neutral-DEFAULT">Reduction in sick days</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Highlight Cards */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+        >
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600 hover:shadow-lg transition duration-300">
+            <div className="flex items-center mb-3">
+              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-dark">92%</h3>
+            </div>
+            <p className="text-neutral-DEFAULT">Reduction in harmful bacteria after my professional cleaning service</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500 hover:shadow-lg transition duration-300">
+            <div className="flex items-center mb-3">
+              <div className="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-dark">65%</h3>
+            </div>
+            <p className="text-neutral-DEFAULT">Improvement in allergy symptoms for families with regular cleaning</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-lg transition duration-300">
+            <div className="flex items-center mb-3">
+              <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-dark">45%</h3>
+            </div>
+            <p className="text-neutral-DEFAULT">Fewer sick days reported by families who use my cleaning services</p>
+          </div>
         </motion.div>
 
         {/* Bacteria Reduction Charts */}
@@ -357,117 +458,161 @@ const DataAnalysis = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white p-6 rounded-xl shadow-md"
+            className="bg-white p-8 rounded-xl shadow-md overflow-hidden relative"
           >
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-              <h3 className="text-xl font-semibold text-primary">
-                {cleaningFrequencyComparisons[activeComparisonIndex].title}
-              </h3>
-              <div className="flex items-center space-x-2 mt-2 md:mt-0">
-                <button 
-                  onClick={() => setActiveComparisonIndex(i => (i > 0 ? i - 1 : cleaningFrequencyComparisons.length - 1))}
-                  className="flex items-center justify-center w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full transition"
-                  aria-label="Previous comparison"
-                >
-                  <ArrowLeft size={16} />
-                </button>
-                <span className="text-sm text-neutral-DEFAULT">{activeComparisonIndex + 1}/{cleaningFrequencyComparisons.length}</span>
-                <button 
-                  onClick={() => setActiveComparisonIndex(i => (i < cleaningFrequencyComparisons.length - 1 ? i + 1 : 0))}
-                  className="flex items-center justify-center w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full transition"
-                  aria-label="Next comparison"
-                >
-                  <ArrowRight size={16} />
-                </button>
-                <button
-                  onClick={() => setShowBacteriaDetails(!showBacteriaDetails)}
-                  className="flex items-center ml-2 px-3 py-1 bg-primary-light/10 hover:bg-primary-light/20 text-primary-dark rounded-md text-sm transition"
-                >
-                  <Info size={16} className="mr-1" />
-                  {showBacteriaDetails ? 'Hide Details' : 'Show Details'}
-                </button>
-              </div>
-            </div>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2 z-0"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-50 rounded-full translate-y-1/2 -translate-x-1/2 z-0"></div>
             
-            {showBacteriaDetails && (
-              <div className="bg-blue-50 p-4 rounded-md mb-4 text-sm">
-                <h4 className="font-semibold text-primary-dark mb-2">Why this matters:</h4>
-                <ul className="list-disc pl-5 space-y-1 text-neutral-dark">
-                  <li>Bacteria can double in numbers every 4-20 minutes in ideal conditions</li>
-                  <li>A typical kitchen sponge can harbor up to 54 billion bacteria per cubic centimeter</li>
-                  <li>Bathroom surfaces can contain 500,000 bacteria per square inch</li>
-                  <li>Weekly cleaning disrupts bacteria reproduction cycles effectively</li>
-                  <li>Studies show regular cleaning reduces respiratory infections by up to 40%</li>
-                </ul>
+            <div className="relative z-10">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <div>
+                  <span className="text-cyan-600 text-sm uppercase tracking-wider font-medium">Data Comparison</span>
+                  <h3 className="text-2xl font-semibold text-neutral-dark mt-1">
+                    {cleaningFrequencyComparisons[activeComparisonIndex].title}
+                  </h3>
+                </div>
+                <div className="flex items-center space-x-2 mt-2 md:mt-0">
+                  <button 
+                    onClick={() => setActiveComparisonIndex(i => (i > 0 ? i - 1 : cleaningFrequencyComparisons.length - 1))}
+                    className="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition duration-300"
+                    aria-label="Previous comparison"
+                  >
+                    <ArrowLeft size={18} className="text-blue-600" />
+                  </button>
+                  <span className="text-sm text-neutral-DEFAULT font-medium">{activeComparisonIndex + 1}/{cleaningFrequencyComparisons.length}</span>
+                  <button 
+                    onClick={() => setActiveComparisonIndex(i => (i < cleaningFrequencyComparisons.length - 1 ? i + 1 : 0))}
+                    className="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition duration-300"
+                    aria-label="Next comparison"
+                  >
+                    <ArrowRight size={18} className="text-blue-600" />
+                  </button>
+                  <button
+                    onClick={() => setShowBacteriaDetails(!showBacteriaDetails)}
+                    className="flex items-center ml-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-md text-sm transition duration-300"
+                  >
+                    <Info size={16} className="mr-2" />
+                    {showBacteriaDetails ? 'Hide Details' : 'Show Details'}
+                  </button>
+                </div>
               </div>
-            )}
-            
-            <div className="h-80">
-              <Line
-                data={cleaningFrequencyComparisons[activeComparisonIndex].data}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  animation: {
-                    duration: 1000,
-                    easing: 'easeOutQuart'
-                  },
-                  plugins: {
-                    legend: {
-                      position: 'top',
-                      labels: {
-                        usePointStyle: true,
-                        boxWidth: 6,
-                        padding: 20,
-                        font: {
-                          size: 12
-                        }
-                      }
+              
+              {showBacteriaDetails && (
+                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg mb-6 text-sm shadow-inner">
+                  <h4 className="font-semibold text-blue-600 mb-3 text-lg">Why This Matters For Your Health:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-blue-600"></div>
+                        </div>
+                        <span>Bacteria can double every 4-20 minutes in ideal conditions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-blue-600"></div>
+                        </div>
+                        <span>A typical kitchen sponge can harbor up to 54 billion bacteria per cubic centimeter</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-blue-600"></div>
+                        </div>
+                        <span>Bathroom surfaces can contain 500,000 bacteria per square inch</span>
+                      </li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-cyan-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-cyan-600"></div>
+                        </div>
+                        <span>Weekly cleaning disrupts bacteria reproduction cycles effectively</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-cyan-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-cyan-600"></div>
+                        </div>
+                        <span>Studies show regular cleaning reduces respiratory infections by up to 40%</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mt-1 mr-2 h-4 w-4 rounded-full bg-cyan-100 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-cyan-600"></div>
+                        </div>
+                        <span>My cleaning service targets high-touch surfaces where germs collect most</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+              
+              <div className="h-80 bg-white p-2 rounded-lg">
+                <Line
+                  data={cleaningFrequencyComparisons[activeComparisonIndex].data}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                      duration: 1000,
+                      easing: 'easeOutQuart'
                     },
-                    tooltip: {
-                      ...bacteriaTooltipCallback,
-                      usePointStyle: true,
-                      padding: 12,
-                      boxWidth: 8
-                    }
-                  },
-                  scales: {
-                    y: {
-                      beginAtZero: true,
-                      title: {
-                        display: true,
-                        text: 'Bacteria Level (% of initial)',
-                        padding: {top: 10, bottom: 10},
-                        font: {
-                          size: 12,
-                          weight: 'bold'
+                    plugins: {
+                      legend: {
+                        position: 'top',
+                        labels: {
+                          usePointStyle: true,
+                          boxWidth: 6,
+                          padding: 20,
+                          font: {
+                            size: 12
+                          }
                         }
                       },
-                      grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
+                      tooltip: {
+                        ...bacteriaTooltipCallback,
+                        usePointStyle: true,
+                        padding: 12,
+                        boxWidth: 8
                       }
                     },
-                    x: {
-                      grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        title: {
+                          display: true,
+                          text: 'Bacteria Level (% of initial)',
+                          padding: {top: 10, bottom: 10},
+                          font: {
+                            size: 12,
+                            weight: 'bold'
+                          }
+                        },
+                        grid: {
+                          color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                      },
+                      x: {
+                        grid: {
+                          color: 'rgba(0, 0, 0, 0.05)'
+                        }
                       }
+                    },
+                    elements: {
+                      line: {
+                        borderWidth: 3
+                      }
+                    },
+                    interaction: {
+                      mode: 'index',
+                      intersect: false
                     }
-                  },
-                  elements: {
-                    line: {
-                      borderWidth: 3
-                    }
-                  },
-                  interaction: {
-                    mode: 'index',
-                    intersect: false
-                  }
-                }}
-              />
+                  }}
+                />
+              </div>
+              <div className="mt-6 text-neutral-DEFAULT bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+                <p className="font-medium">Key insight:</p>
+                <p>{cleaningFrequencyComparisons[activeComparisonIndex].description}</p>
+              </div>
             </div>
-            <p className="mt-4 text-neutral-DEFAULT">
-              {cleaningFrequencyComparisons[activeComparisonIndex].description}
-            </p>
           </motion.div>
         </div>
 
@@ -478,9 +623,10 @@ const DataAnalysis = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-white p-6 rounded-xl shadow-md"
+            className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <h3 className="text-xl font-semibold mb-4 text-primary">Common Household Germs Elimination</h3>
+            <span className="text-cyan-600 text-sm uppercase tracking-wider font-medium">Bacteria Elimination</span>
+            <h3 className="text-2xl font-semibold mb-6 text-neutral-dark mt-1">Common Household Germs</h3>
             <div className="h-80">
               <Doughnut
                 data={commonGermsData}
@@ -512,9 +658,9 @@ const DataAnalysis = () => {
                 }}
               />
             </div>
-            <div className="mt-4 text-neutral-DEFAULT text-sm bg-gray-50 p-3 rounded">
-              <p className="font-medium mb-1">Why this matters:</p>
-              <p>Professional cleaning effectively eliminates up to 92% of harmful bacteria like E. coli and Salmonella, significantly reducing the risk of foodborne illnesses and infections.</p>
+            <div className="mt-6 text-neutral-DEFAULT text-sm bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg">
+              <p className="font-medium text-blue-700 mb-2">Why this matters:</p>
+              <p>My professional cleaning effectively eliminates up to 92% of harmful bacteria like E. coli and Salmonella, significantly reducing the risk of foodborne illnesses and infections in your home.</p>
             </div>
           </motion.div>
 
@@ -523,9 +669,10 @@ const DataAnalysis = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-white p-6 rounded-xl shadow-md"
+            className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300"
           >
-            <h3 className="text-xl font-semibold mb-4 text-primary">Health Impact of Regular Cleaning</h3>
+            <span className="text-cyan-600 text-sm uppercase tracking-wider font-medium">Health Improvements</span>
+            <h3 className="text-2xl font-semibold mb-6 text-neutral-dark mt-1">Impact on Well-being</h3>
             <div className="h-80">
               <Bar
                 data={healthImpactData}
@@ -533,14 +680,15 @@ const DataAnalysis = () => {
                   responsive: true,
                   maintainAspectRatio: false,
                   animation: {
-                    delay: (context) => context.dataIndex * 100,
+                    delay: (context: any) => context.dataIndex * 150
                   },
                   plugins: {
                     legend: {
-                      display: false,
+                      display: false
                     },
                     tooltip: {
                       ...healthTooltipCallback,
+                      usePointStyle: true
                     }
                   },
                   scales: {
@@ -550,13 +698,9 @@ const DataAnalysis = () => {
                       title: {
                         display: true,
                         text: 'Improvement (%)',
-                        font: {
-                          size: 12,
-                          weight: 'bold'
-                        }
                       },
                       grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
+                        display: false
                       }
                     },
                     x: {
@@ -565,93 +709,49 @@ const DataAnalysis = () => {
                       }
                     }
                   },
-                  // @ts-ignore
-                  barPercentage: 0.7,
-                  // @ts-ignore
-                  categoryPercentage: 0.8,
-                  // @ts-ignore
-                  borderRadius: 6,
                 }}
               />
             </div>
-            <div className="mt-4 text-neutral-DEFAULT text-sm bg-gray-50 p-3 rounded">
-              <p className="font-medium mb-1">Why this matters:</p>
-              <p>Regular professional cleaning can improve overall well-being by up to 80% and reduce sick days by 45%, creating a healthier living and working environment.</p>
+            <div className="mt-6 text-neutral-DEFAULT text-sm bg-gradient-to-r from-cyan-50 to-blue-50 p-4 rounded-lg">
+              <p className="font-medium text-cyan-700 mb-2">The health connection:</p>
+              <p>My clients report significant improvements across multiple health factors. Sleep quality and overall well-being see the highest gains, with a 72% and 80% improvement respectively after regular cleaning.</p>
             </div>
           </motion.div>
         </div>
-        
-        {/* New Allergen Reduction Radar Chart */}
+
+        {/* Call to action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-white p-6 rounded-xl shadow-md"
+          className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl p-8 shadow-lg text-white text-center relative overflow-hidden"
         >
-          <h3 className="text-xl font-semibold mb-4 text-primary">Indoor Allergen Reduction</h3>
-          <div className="h-80">
-            <Radar
-              data={allergenReductionData}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                elements: {
-                  line: {
-                    borderWidth: 3
-                  },
-                  point: {
-                    radius: 4,
-                    hoverRadius: 6
-                  }
-                },
-                plugins: {
-                  legend: {
-                    position: 'top',
-                    labels: {
-                      usePointStyle: true,
-                      padding: 15
-                    }
-                  },
-                  tooltip: {
-                    callbacks: {
-                      label: function(context) {
-                        const label = context.dataset.label || '';
-                        const value = context.raw;
-                        return `${label}: ${value} concentration units`;
-                      }
-                    }
-                  }
-                },
-                scales: {
-                  r: {
-                    angleLines: {
-                      display: true,
-                      color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    grid: {
-                      color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    suggestedMin: 0,
-                    suggestedMax: 100,
-                    ticks: {
-                      stepSize: 20,
-                      backdropColor: 'transparent'
-                    },
-                    pointLabels: {
-                      font: {
-                        size: 12,
-                        weight: 500
-                      }
-                    }
-                  }
-                }
-              }}
-            />
+          {/* Background pattern with overlay */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-full h-full">
+                <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                <div className="absolute top-20 right-10 w-20 h-20 bg-white/10 rounded-full"></div>
+                <div className="absolute bottom-10 left-1/3 w-30 h-30 bg-white/10 rounded-full"></div>
+                <div className="absolute bottom-20 right-1/4 w-24 h-24 bg-white/10 rounded-full"></div>
+              </div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-90"></div>
           </div>
-          <div className="mt-4 text-neutral-DEFAULT text-sm bg-gray-50 p-3 rounded">
-            <p className="font-medium mb-1">What this shows:</p>
-            <p>Professional cleaning significantly reduces common indoor allergens, with an 80-90% decrease in allergen concentrations across all categories. This is particularly important for individuals with allergies, asthma, or respiratory sensitivities.</p>
+          
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold mb-4">Experience the Science of Clean</h3>
+            <p className="max-w-2xl mx-auto mb-6">
+              Ready to see how my data-driven cleaning approach can transform your home's health metrics? Book a consultation today.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-white text-blue-600 font-medium rounded-md shadow-lg hover:shadow-xl transition"
+            >
+              Book a Free Consultation
+            </motion.button>
           </div>
         </motion.div>
       </div>

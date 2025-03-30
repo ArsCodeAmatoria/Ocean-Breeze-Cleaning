@@ -1,10 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-// Dynamically import the AnimatedLogo component with no SSR
-const AnimatedLogo = dynamic(() => import('./AnimatedLogo'), { ssr: false });
 
 const Footer = () => {
   return (
@@ -13,26 +9,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-4">
-              <div className="mr-2">
-                <AnimatedLogo size={40} />
-              </div>
-              <span className="ml-1 text-xl font-bold">Ocean Breeze Cleaning</span>
+            <div className="mb-4">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                Ocean Breeze Cleaning
+              </span>
             </div>
             <p className="text-neutral-light mb-2">
               Professional cleaning services with a focus on health, backed by scientific research on bacteria, germs, and air quality.
             </p>
-            <p className="text-neutral-light mb-4">
-              <span className="text-accent font-medium">Founded by Karla Figueroa Zuniga</span>
-            </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-accent transition">
+              <a href="#" className="text-white hover:text-cyan-300 transition">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white hover:text-accent transition">
+              <a href="#" className="text-white hover:text-cyan-300 transition">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white hover:text-accent transition">
+              <a href="#" className="text-white hover:text-cyan-300 transition">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -43,19 +35,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-neutral pb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">About Us</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">About Us</Link>
               </li>
               <li>
-                <Link href="#data" className="text-neutral-light hover:text-accent transition">Our Data</Link>
+                <Link href="#data" className="text-neutral-light hover:text-cyan-300 transition">Our Data</Link>
               </li>
               <li>
-                <Link href="#benefits" className="text-neutral-light hover:text-accent transition">Health Benefits</Link>
+                <Link href="#benefits" className="text-neutral-light hover:text-cyan-300 transition">Health Benefits</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Cleaning Services</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Cleaning Services</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">FAQ</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">FAQ</Link>
               </li>
             </ul>
           </div>
@@ -65,19 +57,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-neutral pb-2">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Residential Cleaning</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Residential Cleaning</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Commercial Cleaning</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Commercial Cleaning</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Deep Sanitization</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Deep Sanitization</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Post-Construction</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Post-Construction</Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-light hover:text-accent transition">Specialized Services</Link>
+                <Link href="#" className="text-neutral-light hover:text-cyan-300 transition">Specialized Services</Link>
               </li>
             </ul>
           </div>
@@ -87,15 +79,15 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-neutral pb-2">Contact Us</h3>
             <div className="space-y-4">
               <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-accent mt-1 mr-3" />
+                <MapPin className="h-5 w-5 text-cyan-300 mt-1 mr-3" />
                 <p className="text-neutral-light">123 Breeze Way, Ocean City, FL 33123</p>
               </div>
               <div className="flex items-center">
-                <Phone className="h-5 w-5 text-accent mr-3" />
+                <Phone className="h-5 w-5 text-cyan-300 mr-3" />
                 <p className="text-neutral-light">(555) 123-4567</p>
               </div>
               <div className="flex items-center">
-                <Mail className="h-5 w-5 text-accent mr-3" />
+                <Mail className="h-5 w-5 text-cyan-300 mr-3" />
                 <p className="text-neutral-light">info@oceanbreezecleaning.com</p>
               </div>
             </div>
@@ -113,9 +105,9 @@ const Footer = () => {
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="px-4 py-2 bg-neutral text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-accent"
+                className="px-4 py-2 bg-neutral text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-cyan-300"
               />
-              <button className="px-4 py-2 bg-accent text-white font-medium rounded-r-md hover:bg-accent/90 transition">
+              <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-r-md hover:opacity-90 transition">
                 Subscribe
               </button>
             </div>
@@ -124,11 +116,11 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="text-center text-neutral-light text-sm">
-          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning by Karla Figueroa Zuniga. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning. All rights reserved.</p>
           <p className="mt-2">
-            <Link href="#" className="hover:text-accent transition">Privacy Policy</Link>
+            <Link href="#" className="hover:text-cyan-300 transition">Privacy Policy</Link>
             {' | '}
-            <Link href="#" className="hover:text-accent transition">Terms of Service</Link>
+            <Link href="#" className="hover:text-cyan-300 transition">Terms of Service</Link>
           </p>
         </div>
       </div>

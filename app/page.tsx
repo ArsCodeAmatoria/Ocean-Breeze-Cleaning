@@ -9,6 +9,7 @@ import Benefits from '../components/benefits';
 import Testimonials from '../components/testimonials';
 import ContactForm from '../components/contact-form';
 import Footer from '../components/footer';
+import Founder from '../components/founder';
 
 // Dynamically import the DataAnalysis component to avoid Chart.js SSR issues
 const DataAnalysis = dynamic(() => import('../components/data-analysis'), {
@@ -38,6 +39,7 @@ export default function Home() {
       <About />
       <DataAnalysis />
       <Benefits />
+      <Founder />
       <Testimonials />
       <ContactForm />
       <Footer />

@@ -1,49 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import dynamic from 'next/dynamic';
-
-// Dynamically import the AnimatedLogo component with no SSR to avoid hydration issues
-const AnimatedLogo = dynamic(() => import('./AnimatedLogo'), { ssr: false });
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Add scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? "bg-white/70 backdrop-blur-lg shadow-md" 
+        : "bg-white shadow-sm"
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <div className="mr-2">
-                <AnimatedLogo size={50} />
-              </div>
-              <div className="ml-1">
-                <span className="text-xl font-bold text-primary">Ocean Breeze Cleaning</span>
-                <div className="text-xs text-neutral-DEFAULT">by Karla Figueroa Zuniga</div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                  Ocean Breeze Cleaning
+                </span>
               </div>
             </Link>
           </div>
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/about" className="text-neutral-DEFAULT hover:text-primary transition">
+            <Link href="/about" className="text-gray-600 hover:text-blue-600 transition duration-300">
               About
             </Link>
-            <Link href="#data" className="text-neutral-DEFAULT hover:text-primary transition">
+            <Link href="#data" className="text-gray-600 hover:text-blue-600 transition duration-300">
               Data Analysis
             </Link>
-            <Link href="#benefits" className="text-neutral-DEFAULT hover:text-primary transition">
+            <Link href="#benefits" className="text-gray-600 hover:text-blue-600 transition duration-300">
               Benefits
             </Link>
-            <Link href="#contact" className="text-neutral-DEFAULT hover:text-primary transition">
+            <Link href="#contact" className="text-gray-600 hover:text-blue-600 transition duration-300">
               Contact
             </Link>
-            <button className="px-4 py-2 rounded-md bg-accent text-white font-medium hover:bg-accent/90 transition">
+            <button className="px-4 py-2 rounded-md bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium hover:shadow-lg transition duration-300">
               Get a Quote
             </button>
           </div>
@@ -52,7 +71,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-neutral-dark hover:text-primary hover:bg-gray-100 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 focus:outline-none transition duration-300"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -68,33 +87,37 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
+        <div className={`md:hidden ${
+          scrolled 
+            ? "bg-white/90 backdrop-blur-lg" 
+            : "bg-white"
+        }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
               href="/about" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-DEFAULT hover:text-primary hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition duration-300"
             >
               About
             </Link>
             <Link 
               href="#data" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-DEFAULT hover:text-primary hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition duration-300"
             >
               Data Analysis
             </Link>
             <Link 
               href="#benefits" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-DEFAULT hover:text-primary hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition duration-300"
             >
               Benefits
             </Link>
             <Link 
               href="#contact" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-DEFAULT hover:text-primary hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition duration-300"
             >
               Contact
             </Link>
-            <button className="mt-2 w-full px-4 py-2 rounded-md bg-accent text-white font-medium hover:bg-accent/90 transition">
+            <button className="mt-2 w-full px-4 py-2 rounded-md bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium hover:shadow-lg transition duration-300">
               Get a Quote
             </button>
           </div>
