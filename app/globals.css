@@ -1,6 +1,7 @@
-@import "@tailwindcss/postcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Base styles */
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
@@ -55,6 +56,15 @@
   --ring: 212.7 26.8% 83.9%;
 }
 
+* {
+  border-color: #e5e7eb;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
 /* From the Tailwind v4 documentation, we need to define a theme */
 @theme {
   --color-primary: #007BFF;
@@ -74,12 +84,4 @@
   --color-neutral-dark: #212529;
 }
 
-/* Basic styles */
-* {
-  border-color: #e5e7eb;
-}
-
-body {
-  background-color: white;
-  color: #333;
-} 
+/* Basic styles */ 

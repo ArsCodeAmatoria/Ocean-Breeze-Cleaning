@@ -21,7 +21,8 @@ const testimonials = [
     id: 3,
     name: 'Sarah Thompson',
     role: 'Parent of Two',
-    content: `As a mother of two young children, I appreciate their use of eco-friendly products that effectively kill germs without harmful chemicals. My pediatrician has even noticed a difference in my children's respiratory health.`,
+    content:
+      "As a mother of two young children, I appreciate their use of eco-friendly products that effectively kill germs without harmful chemicals. My pediatrician has even noticed a difference in my children's respiratory health.",
     rating: 5,
   },
 ];
