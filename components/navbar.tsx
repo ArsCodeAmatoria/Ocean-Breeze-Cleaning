@@ -39,12 +39,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                Ocean Breeze
-              </div>
-              <div className="hidden sm:block text-xs px-2 py-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-md">
-                .me
+                Ocean Breeze Cleaning
               </div>
             </Link>
           </div>

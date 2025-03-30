@@ -11,10 +11,7 @@ const Footer = () => {
           <div>
             <div className="mb-4">
               <div className="flex items-center">
-                <div className="text-2xl font-bold text-white">Ocean Breeze</div>
-                <div className="ml-1 text-xs px-1.5 py-0.5 bg-white/20 text-white rounded">
-                  .me
-                </div>
+                <div className="text-2xl font-bold text-white">Ocean Breeze Cleaning</div>
               </div>
             </div>
             <p className="text-neutral-light mb-2">
