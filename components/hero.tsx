@@ -12,13 +12,41 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              A Cleaner Home Is A Healthier Home
-            </h1>
-            <p className="text-lg md:text-xl mb-8 text-blue-50">
-              Discover how regular cleaning reduces bacteria, germs, and viruses, 
-              improving your family's health and well-being.
-            </p>
+            <div className="mb-8">
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-2"
+              >
+                <span className="text-accent text-lg md:text-xl font-medium uppercase tracking-wider">Professional & Personalized</span>
+              </motion.div>
+              <motion.h1 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+              >
+                <span className="text-white drop-shadow-lg">Ocean Breeze Cleaning</span>
+                <br />
+                <span className="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">by Karla Figueroa Zuniga</span>
+              </motion.h1>
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: "120px" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="h-1 bg-accent mb-6"
+              />
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-lg md:text-xl mb-8 text-blue-50 max-w-lg leading-relaxed"
+              >
+                Experience the difference of a personalized cleaning approach. I'm dedicated to reducing bacteria, 
+                germs, and viruses in your home, improving your family's health and well-being.
+              </motion.p>
+            </div>
             <div className="flex flex-wrap gap-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -32,7 +60,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 bg-white text-primary font-medium rounded-md shadow-lg hover:shadow-xl transition"
               >
-                View Our Data
+                My Cleaning Approach
               </motion.button>
             </div>
           </motion.div>
@@ -49,21 +77,21 @@ const Hero = () => {
                   <ShieldCheck className="h-8 w-8 text-accent" />
                   <div>
                     <h3 className="text-xl font-semibold">Reduce Harmful Bacteria</h3>
-                    <p className="text-blue-50">Regular cleaning reduces harmful bacteria by up to 80%.</p>
+                    <p className="text-blue-50">My detailed cleaning reduces harmful bacteria by up to 80%.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Droplets className="h-8 w-8 text-accent" />
                   <div>
                     <h3 className="text-xl font-semibold">Improve Air Quality</h3>
-                    <p className="text-blue-50">Eliminate allergens and improve breathing for your family.</p>
+                    <p className="text-blue-50">I eliminate allergens to improve breathing for your family.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Wind className="h-8 w-8 text-accent" />
                   <div>
-                    <h3 className="text-xl font-semibold">Ocean Breeze Fresh</h3>
-                    <p className="text-blue-50">Leave your home smelling as fresh as an ocean breeze.</p>
+                    <h3 className="text-xl font-semibold">Personal Touch</h3>
+                    <p className="text-blue-50">Every space I clean receives my personal attention to detail.</p>
                   </div>
                 </div>
               </div>

@@ -13,8 +13,11 @@ const Footer = () => {
               <Droplet className="h-8 w-8 text-accent" />
               <span className="ml-2 text-xl font-bold">Ocean Breeze Cleaning</span>
             </div>
-            <p className="text-neutral-light mb-4">
+            <p className="text-neutral-light mb-2">
               Professional cleaning services with a focus on health, backed by scientific research on bacteria, germs, and air quality.
+            </p>
+            <p className="text-neutral-light mb-4">
+              <span className="text-accent font-medium">Founded by Karla Figueroa Zuniga</span>
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white hover:text-accent transition">
@@ -115,7 +118,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="text-center text-neutral-light text-sm">
-          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ocean Breeze Cleaning by Karla Figueroa Zuniga. All rights reserved.</p>
           <p className="mt-2">
             <Link href="#" className="hover:text-accent transition">Privacy Policy</Link>
             {' | '}

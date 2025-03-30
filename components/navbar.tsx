@@ -16,7 +16,10 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <Droplet className="h-8 w-8 text-primary" />
-              <span className="ml-2 text-xl font-bold text-primary">Ocean Breeze Cleaning</span>
+              <div className="ml-2">
+                <span className="text-xl font-bold text-primary">Ocean Breeze Cleaning</span>
+                <div className="text-xs text-neutral-DEFAULT">by Karla Figueroa Zuniga</div>
+              </div>
             </Link>
           </div>
           

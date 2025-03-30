@@ -56,32 +56,11 @@
   --ring: 212.7 26.8% 83.9%;
 }
 
-* {
-  border-color: #e5e7eb;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
-
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-/* From the Tailwind v4 documentation, we need to define a theme */
-@theme {
-  --color-primary: #007BFF;
-  --color-primary-light: #00AEEF;
-  --color-primary-dark: #1E90FF;
-  
-  --color-secondary: #28A745;
-  --color-secondary-light: #32CD32;
-  --color-secondary-dark: #00C853;
-  
-  --color-accent: #FFC107;
-  --color-accent-orange: #FF9800;
-  --color-accent-turquoise: #40E0D0;
-  
-  --color-neutral: #6C757D;
-  --color-neutral-light: #B0BEC5;
-  --color-neutral-dark: #212529;
-}
-
-/* Basic styles */ 

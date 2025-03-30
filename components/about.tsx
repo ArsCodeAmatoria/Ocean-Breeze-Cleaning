@@ -21,7 +21,7 @@ const About = () => {
               <div className="aspect-w-4 aspect-h-3 w-full h-96 relative">
                 <Image 
                   src="/images/science.jpg" 
-                  alt="Scientific approach to cleaning" 
+                  alt="Karla Figueroa Zuniga's approach to cleaning" 
                   fill
                   className="object-cover"
                 />
@@ -35,13 +35,32 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
-              Backed by Science, <span className="text-primary">Dedicated to Health</span>
-            </h2>
+            <div className="mb-8">
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-block text-accent text-sm uppercase tracking-wider font-medium mb-2"
+              >
+                Personalized & Scientific
+              </motion.span>
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Karla Figueroa Zuniga's</span> 
+                <br className="hidden md:block" /> Approach to Healthy Cleaning
+              </h2>
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                whileInView={{ opacity: 1, width: "100px" }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="h-1 bg-primary/60 mb-6"
+              />
+            </div>
             <p className="text-lg text-neutral-DEFAULT mb-8">
-              At Ocean Breeze Cleaning, we believe in a scientific approach to cleaning. We're not just 
-              about appearance—we're about creating genuinely healthier environments through research-based 
-              cleaning techniques that reduce bacteria, viruses, and allergens.
+              At Ocean Breeze Cleaning, I believe in a scientific approach to cleaning. I founded this company 
+              with a vision that goes beyond appearance—I'm dedicated to creating genuinely healthier environments 
+              through research-based cleaning techniques that reduce bacteria, viruses, and allergens.
             </p>
             
             <div className="space-y-4 mb-8">
@@ -50,7 +69,7 @@ const About = () => {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <p className="ml-3 text-neutral-DEFAULT">
-                  <span className="font-medium">Health-focused cleaning</span> - We prioritize methods that improve air quality and reduce pathogens.
+                  <span className="font-medium">Health-focused cleaning</span> - I prioritize methods that improve air quality and reduce pathogens in your space.
                 </p>
               </div>
               <div className="flex items-start">
@@ -58,7 +77,7 @@ const About = () => {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <p className="ml-3 text-neutral-DEFAULT">
-                  <span className="font-medium">Scientific approach</span> - We continuously update our techniques based on the latest research.
+                  <span className="font-medium">Personalized approach</span> - Each client receives a customized cleaning plan based on their specific needs.
                 </p>
               </div>
               <div className="flex items-start">
@@ -66,7 +85,7 @@ const About = () => {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <p className="ml-3 text-neutral-DEFAULT">
-                  <span className="font-medium">Eco-friendly products</span> - Our cleaning solutions are effective against germs but gentle on the planet.
+                  <span className="font-medium">Eco-friendly products</span> - My cleaning solutions are effective against germs but gentle on the planet.
                 </p>
               </div>
             </div>
@@ -76,7 +95,7 @@ const About = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-primary text-white font-medium rounded-md shadow-lg hover:shadow-xl transition"
             >
-              Learn More About Our Approach
+              Learn More About My Approach
             </motion.button>
           </motion.div>
         </div>

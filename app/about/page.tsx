@@ -110,10 +110,10 @@ const AboutPage = () => {
 
   // Team members
   const teamMembers = [
-    { name: 'Sarah Johnson', role: 'CEO & Founder', image: '/images/about-image.jpg' },
+    { name: 'Karla Figueroa Zuniga', role: 'Founder & CEO', image: '/images/about-image.jpg' },
     { name: 'Michael Rodriguez', role: 'Head of Operations', image: '/images/about-image.jpg' },
-    { name: 'Emily Chen', role: 'Research Director', image: '/images/about-image.jpg' },
-    { name: 'David Thompson', role: 'Client Relations', image: '/images/about-image.jpg' },
+    { name: 'Emily Chen', role: 'Client Relations Manager', image: '/images/about-image.jpg' },
+    { name: 'David Thompson', role: 'Lead Cleaning Specialist', image: '/images/about-image.jpg' },
   ];
 
   // Animation variants
@@ -129,31 +129,49 @@ const AboutPage = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-primary-light text-white py-24">
         <div className="absolute inset-0 z-0 opacity-20">
-          <Image
-            src="/images/about-image.jpg"
-            alt="Ocean Breeze Cleaning Team"
-            fill
-            className="object-cover"
-            quality={100}
-          />
+          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <Image
+              src="/images/about-image.jpg"
+              alt="Karla Figueroa Zuniga - Ocean Breeze Cleaning"
+              fill
+              className="object-cover"
+              quality={100}
+            />
+          </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block text-accent text-lg md:text-xl font-medium uppercase tracking-wider mb-3"
+            >
+              About Our Services
+            </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
             >
-              About Ocean Breeze Cleaning
+              <span className="text-white drop-shadow-lg">Ocean Breeze Cleaning</span>
+              <br />
+              <span className="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">by Karla Figueroa Zuniga</span>
             </motion.h1>
+            <motion.div 
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "180px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="h-1 bg-accent mx-auto mb-6"
+            />
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl max-w-3xl mx-auto"
+              className="text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              A team of dedicated professionals with a scientific approach to create healthier living and working environments.
+              A personalized approach to creating healthier living and working environments through quality cleaning services.
             </motion.p>
           </div>
         </div>
@@ -173,7 +191,7 @@ const AboutPage = () => {
               <div className="aspect-w-4 aspect-h-3 w-full h-full">
                 <Image 
                   src="/images/about-image.jpg" 
-                  alt="Our Story"
+                  alt="Karla Figueroa Zuniga"
                   fill
                   className="object-cover"
                 />
@@ -181,23 +199,23 @@ const AboutPage = () => {
             </div>
             
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">My Story</h2>
               <p className="text-lg text-neutral-DEFAULT mb-6">
-                Founded in 2015, Ocean Breeze Cleaning began with a simple mission: to provide cleaning services that go beyond appearance and truly contribute to healthier living environments.
+                Founded in 2015, Ocean Breeze Cleaning began with my passion for creating clean, healthy living spaces. I'm Karla Figueroa Zuniga, and I started this business with a simple mission: to provide cleaning services that go beyond appearance and truly contribute to healthier environments.
               </p>
               <p className="text-lg text-neutral-DEFAULT mb-6">
-                Our founder, Sarah Johnson, a microbiologist with a passion for public health, recognized that traditional cleaning methods often fell short in addressing the microscopic threats that impact our health daily.
+                With a background in environmental health and a dedication to excellence, I recognized that traditional cleaning methods often fell short in addressing the microscopic threats that impact our health daily.
               </p>
               <p className="text-lg text-neutral-DEFAULT mb-6">
-                Today, our team of 45+ professionals combines scientific knowledge with industry-leading practices to deliver cleaning services that not only make spaces shine but significantly reduce pathogens, allergens, and environmental toxins.
+                Today, my team and I combine scientific knowledge with industry-leading practices to deliver cleaning services that not only make spaces shine but significantly reduce pathogens, allergens, and environmental toxins.
               </p>
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
                   <Award className="h-12 w-12 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-neutral-dark">Award-Winning Service</h3>
-                  <p className="text-neutral-DEFAULT">Recognized for excellence in sustainable cleaning practices.</p>
+                  <h3 className="text-xl font-semibold text-neutral-dark">Personalized Service</h3>
+                  <p className="text-neutral-DEFAULT">I personally oversee every project to ensure the highest quality standards.</p>
                 </div>
               </div>
             </div>
@@ -215,7 +233,25 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Our Impact By The Numbers</h2>
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-block text-accent text-sm uppercase tracking-wider font-medium mb-2"
+            >
+              Measuring Our Success
+            </motion.span>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+              Our Impact By The <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Numbers</span>
+            </h2>
+            <motion.div 
+              initial={{ opacity: 0, width: 0 }}
+              whileInView={{ opacity: 1, width: "120px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-1 bg-primary/60 mx-auto mb-5"
+            />
             <p className="text-lg text-neutral-DEFAULT max-w-3xl mx-auto">
               Over the years, we've made a significant impact in homes and businesses across the region.
             </p>
@@ -321,7 +357,25 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Our Core Values</h2>
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-block text-accent text-sm uppercase tracking-wider font-medium mb-2"
+            >
+              Guiding Principles
+            </motion.span>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+              Our <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Core Values</span>
+            </h2>
+            <motion.div 
+              initial={{ opacity: 0, width: 0 }}
+              whileInView={{ opacity: 1, width: "120px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-1 bg-primary/60 mx-auto mb-5"
+            />
             <p className="text-lg text-neutral-DEFAULT max-w-3xl mx-auto">
               The principles that guide every decision we make and every service we provide.
             </p>
@@ -489,9 +543,27 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Our Leadership Team</h2>
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-block text-accent text-sm uppercase tracking-wider font-medium mb-2"
+            >
+              The People Behind Our Success
+            </motion.span>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+              Meet Our <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Team</span>
+            </h2>
+            <motion.div 
+              initial={{ opacity: 0, width: 0 }}
+              whileInView={{ opacity: 1, width: "120px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-1 bg-primary/60 mx-auto mb-5"
+            />
             <p className="text-lg text-neutral-DEFAULT max-w-3xl mx-auto">
-              The experienced professionals guiding our mission to create healthier environments.
+              Working alongside me to deliver exceptional cleaning services that prioritize your health and wellbeing.
             </p>
           </motion.div>
           
