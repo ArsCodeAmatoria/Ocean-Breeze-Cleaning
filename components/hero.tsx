@@ -221,79 +221,120 @@ const Hero = () => {
             <div className="relative h-96 sm:h-[450px] flex items-center justify-center overflow-hidden rounded-xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-cyan-900/40 animate-gradient"></div>
               <div className="absolute inset-0 backdrop-blur-sm bg-gray-900/40 border border-blue-500/20 rounded-xl overflow-hidden">
-                {/* 3D animation space */}
-                <div className="absolute inset-0">
-                  {/* Glowing Orb */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                {/* Cleaning visualization animation */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Center shield representing protection */}
+                  <div className="absolute">
                     <motion.div
-                      className="w-40 h-40 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 opacity-70 blur-xl"
+                      className="w-40 h-40 rounded-full bg-gradient-to-tr from-cyan-500/40 to-blue-600/40 flex items-center justify-center"
                       animate={{ 
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.7, 0.5],
+                        scale: [1, 1.1, 1],
+                        boxShadow: [
+                          "0 0 20px rgba(8, 145, 178, 0.4)",
+                          "0 0 40px rgba(8, 145, 178, 0.6)",
+                          "0 0 20px rgba(8, 145, 178, 0.4)"
+                        ]
                       }}
                       transition={{ 
-                        duration: 8, 
+                        duration: 5, 
                         repeat: Infinity,
                         repeatType: "reverse"
                       }}
-                    />
-                    <motion.div
-                      className="absolute inset-0 w-40 h-40 rounded-full bg-gradient-to-br from-cyan-300 to-blue-500 opacity-70 blur-md"
-                      animate={{ 
-                        rotate: 360,
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{ 
-                        rotate: {
-                          duration: 20,
-                          repeat: Infinity,
-                          ease: "linear"
-                        },
-                        scale: {
-                          duration: 5,
-                          repeat: Infinity,
-                          repeatType: "reverse"
-                        }
-                      }}
-                    />
+                    >
+                      {/* Shield icon */}
+                      <svg className="w-20 h-20 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <motion.path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth="1.5" 
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          animate={{ 
+                            pathLength: 1, 
+                            opacity: 1 
+                          }}
+                          transition={{ 
+                            duration: 2,
+                            delay: 0.5
+                          }}
+                        />
+                      </svg>
+                    </motion.div>
                   </div>
                   
-                  {/* Orbiting particles */}
+                  {/* Circling sanitization particles */}
                   <motion.div
-                    className="absolute top-1/2 left-1/2 w-48 h-48 rounded-full"
+                    className="absolute w-52 h-52 rounded-full border border-cyan-500/20"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                     style={{ transformOrigin: "center" }}
                   >
-                    <motion.div
-                      className="absolute w-3 h-3 rounded-full bg-cyan-300"
-                      style={{ left: "0%", top: "50%" }}
-                    />
+                    {/* Sanitization particle */}
+                    <motion.div 
+                      className="absolute w-7 h-7 flex items-center justify-center bg-cyan-400/30 rounded-full backdrop-blur-sm"
+                      style={{ left: "-10px", top: "calc(50% - 14px)" }}
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-cyan-200" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1z" clipRule="evenodd" />
+                      </svg>
+                    </motion.div>
                   </motion.div>
                   
+                  {/* Water droplet orbit */}
                   <motion.div
-                    className="absolute top-1/2 left-1/2 w-80 h-80 rounded-full"
+                    className="absolute w-72 h-72 rounded-full border border-blue-500/20"
                     animate={{ rotate: -360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     style={{ transformOrigin: "center" }}
                   >
-                    <motion.div
-                      className="absolute w-4 h-4 rounded-full bg-blue-400"
-                      style={{ left: "0%", top: "50%" }}
-                    />
+                    {/* Water droplet */}
+                    <motion.div 
+                      className="absolute w-8 h-8 flex items-center justify-center bg-blue-400/30 rounded-full backdrop-blur-sm"
+                      style={{ left: "-14px", top: "calc(50% - 16px)" }}
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </motion.div>
                   </motion.div>
                   
+                  {/* Air quality orbit */}
                   <motion.div
-                    className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full"
+                    className="absolute w-64 h-64 rounded-full border border-teal-500/20"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                     style={{ transformOrigin: "center" }}
                   >
-                    <motion.div
-                      className="absolute w-2 h-2 rounded-full bg-white"
-                      style={{ left: "0%", top: "50%" }}
-                    />
+                    {/* Air particle */}
+                    <motion.div 
+                      className="absolute w-6 h-6 flex items-center justify-center bg-teal-400/30 rounded-full backdrop-blur-sm"
+                      style={{ left: "-12px", top: "calc(50% - 12px)" }}
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-teal-200" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
+                      </svg>
+                    </motion.div>
                   </motion.div>
+                  
+                  {/* Cleaning effectiveness animation */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <motion.div
+                      className="absolute w-80 h-80 rounded-full border border-blue-400/10"
+                      initial={{ scale: 0.2, opacity: 0 }}
+                      animate={{ 
+                        scale: [0.2, 1.2],
+                        opacity: [0, 0.5, 0]
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        repeatDelay: 1
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -305,15 +346,18 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
-              <h3 className="text-lg font-semibold text-white mb-2">Scientifically Backed Cleaning</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">Health-Focused Cleaning</h3>
               <p className="text-gray-300 text-sm mb-3">
-                My approach combines microbiology research with effective cleaning techniques to eliminate harmful pathogens.
+                My approach combines science-backed methods with eco-friendly products to create healthier spaces.
               </p>
               <div className="flex gap-2">
                 <span className="inline-block px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded-full">
-                  Health-Focused
+                  Sanitization
                 </span>
                 <span className="inline-block px-2 py-1 bg-cyan-900/50 text-cyan-300 text-xs rounded-full">
+                  Air Quality
+                </span>
+                <span className="inline-block px-2 py-1 bg-teal-900/50 text-teal-300 text-xs rounded-full">
                   Eco-Friendly
                 </span>
               </div>
