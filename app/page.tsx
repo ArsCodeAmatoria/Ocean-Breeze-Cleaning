@@ -9,7 +9,6 @@ import About from '@/components/about'
 import Benefits from '@/components/benefits'
 import DataAnalysis from '@/components/data-analysis'
 import Footer from '@/components/footer'
-import ParticleBackground from '@/components/ParticleBackground'
 import GlowingButton from '@/components/ui/GlowingButton'
 import FloatingCard from '@/components/FloatingCard'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
@@ -50,16 +49,11 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900">
-      {/* Particle background */}
-      {mounted && (
-        <div className="fixed inset-0 -z-10">
-          <ParticleBackground 
-            particleCount={70}
-            colors={['#0e7490', '#155e75']}
-            interactive={false}
-          />
-        </div>
-      )}
+      {/* Gradient background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-gray-900"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/10 via-transparent to-transparent"></div>
+      </div>
       
       {/* Main Content */}
       <Navbar />
@@ -188,23 +182,24 @@ export default function Home() {
       {mounted && <ScrollToTopButton />}
       
       {/* Scroll indicator */}
-      {showScrollIndicator && (
+      {mounted && showScrollIndicator && (
         <motion.div 
-          className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50"
+          className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           style={{ opacity: opacityScrollDown }}
-          animate={{ 
-            y: [0, 10, 0],
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "loop"
-          }}
         >
-          <div className="flex flex-col items-center">
-            <span className="text-white text-sm mb-2 opacity-70">Scroll to explore</span>
-            <ChevronDown className="text-white h-6 w-6 opacity-70" />
-          </div>
+          <motion.p 
+            className="text-gray-400 text-sm mb-2"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            Scroll to explore
+          </motion.p>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ChevronDown className="text-cyan-400 w-6 h-6" />
+          </motion.div>
         </motion.div>
       )}
     </div>

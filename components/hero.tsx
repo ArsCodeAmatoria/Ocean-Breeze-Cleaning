@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Droplets, Wind } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import GlowingButton from './ui/GlowingButton';
-
-// Dynamically import the 3D Canvas component to avoid SSR issues
-const Virus3DCanvas = dynamic(() => import('./3d/Virus3DCanvas'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-24 h-24 rounded-full bg-blue-600/20 animate-pulse"></div>
-    </div>
-  )
-});
 
 // Type definitions for FloatingParticle
 interface FloatingParticleProps {
@@ -53,197 +42,123 @@ const FloatingParticle: React.FC<FloatingParticleProps> = ({ size, color, delay,
 );
 
 const Hero = () => {
+  // State for the current stat/feature being displayed
+  const [currentStatIndex, setCurrentStatIndex] = useState(0);
   const controls = useAnimation();
-  const [isLoaded, setIsLoaded] = useState(false);
   
-  // Start animations when component mounts
+  // Stats/features data
+  const statsAndFeatures = [
+    { 
+      stat: "99.9%", 
+      text: "Bacteria reduction through our specialized cleaning protocols",
+      icon: <ShieldCheck className="h-6 w-6 text-cyan-400" />
+    },
+    { 
+      stat: "85%", 
+      text: "Improvement in air quality after our deep cleaning services",
+      icon: <Wind className="h-6 w-6 text-cyan-400" /> 
+    },
+    { 
+      stat: "100%", 
+      text: "Eco-friendly, non-toxic cleaning solutions",
+      icon: <Droplets className="h-6 w-6 text-cyan-400" /> 
+    },
+  ];
+  
+  // Animation for rotating stats
   useEffect(() => {
-    const loadSequence = async () => {
-      await controls.start("visible");
-      setIsLoaded(true);
-    };
+    const interval = setInterval(() => {
+      controls.start({
+        opacity: [1, 0, 0, 1],
+        y: [0, -10, 10, 0],
+        transition: { duration: 1.5, times: [0, 0.3, 0.6, 1] }
+      });
+      
+      // Wait for fade out animation to complete before changing content
+      setTimeout(() => {
+        setCurrentStatIndex((prevIndex) => 
+          prevIndex === statsAndFeatures.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 450);
+    }, 5000);
     
-    loadSequence();
-  }, [controls]);
+    return () => clearInterval(interval);
+  }, [controls, statsAndFeatures.length]);
   
-  // Variants for staggered animations
+  // Container variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.3,
+        delayChildren: 0.2
       }
     }
   };
   
+  // Item variants
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    hidden: { opacity: 0, y: 50 },
+    visible: {
       opacity: 1,
-      transition: { 
+      y: 0,
+      transition: {
         type: "spring",
-        stiffness: 260,
-        damping: 20
+        stiffness: 100,
+        damping: 12
       }
     }
   };
   
   return (
-    <section className="relative bg-gradient-to-r from-blue-700 to-cyan-600 text-white overflow-hidden min-h-[80vh] flex items-start">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <motion.div 
-          className="absolute top-0 right-0 w-1/3 h-full bg-blue-500 opacity-20 blur-3xl rounded-full"
-          animate={{ 
-            x: [50, 30, 50],
-            y: [-50, -30, -50],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ 
-            repeat: Infinity,
-            duration: 15,
-            ease: "easeInOut" 
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-cyan-500 opacity-20 blur-3xl rounded-full"
-          animate={{ 
-            x: [-50, -30, -50],
-            y: [30, 50, 30],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ 
-            repeat: Infinity,
-            duration: 18,
-            ease: "easeInOut" 
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-20 h-20 bg-white opacity-10 blur-xl rounded-full"
-          animate={{ 
-            y: [0, 30, 0],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{ 
-            repeat: Infinity,
-            duration: 5,
-            ease: "easeInOut" 
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
-        
-        {/* Floating particles */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <FloatingParticle 
-            size="8px" 
-            color="bg-cyan-300/30" 
-            delay={0} 
-            duration={18}
-            x={['10%', '15%', '5%', '12%']} 
-            y={['15%', '60%', '40%', '15%']} 
-          />
-          <FloatingParticle 
-            size="12px" 
-            color="bg-blue-300/20" 
-            delay={2} 
-            duration={22}
-            x={['80%', '75%', '85%']} 
-            y={['20%', '50%', '20%']} 
-          />
-          <FloatingParticle 
-            size="6px" 
-            color="bg-white/30" 
-            delay={1.5} 
-            duration={15}
-            x={['45%', '52%', '48%']} 
-            y={['70%', '30%', '70%']} 
-          />
-          <FloatingParticle 
-            size="10px" 
-            color="bg-blue-200/20" 
-            delay={3} 
-            duration={20}
-            x={['20%', '30%', '25%']} 
-            y={['80%', '40%', '80%']} 
-          />
-          <FloatingParticle 
-            size="14px" 
-            color="bg-cyan-200/20" 
-            delay={0.5} 
-            duration={25}
-            x={['90%', '70%', '90%']} 
-            y={['90%', '30%', '90%']} 
-          />
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-16 md:pb-24 relative z-10 w-full">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <motion.div
+    <section id="hero" className="relative py-20 sm:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+          {/* Left Column - Text Content */}
+          <motion.div 
+            className="lg:col-span-6 mb-12 lg:mb-0"
             variants={containerVariants}
             initial="hidden"
-            animate={controls}
-            className="relative"
+            animate="visible"
           >
-            <div className="mb-6">
-              <motion.div 
-                variants={itemVariants}
-                className="mb-1"
-              >
-                <span className="text-white text-lg md:text-xl font-medium uppercase tracking-wider">
-                  <AnimatePresence>
-                    {isLoaded && (
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="relative inline-block"
-                      >
-                        <motion.span
-                          className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-cyan-400"
-                          initial={{ width: 0 }}
-                          animate={{ width: "100%" }}
-                          transition={{ duration: 0.7, delay: 0.5 }}
-                        />
-                        Professional & Personalized
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </span>
-              </motion.div>
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 leading-tight"
-              >
-                <span className="text-white drop-shadow-lg relative inline-block">
-                  Ocean Breeze
-                  <motion.span 
-                    className="absolute -bottom-1 left-0 w-full h-1 bg-transparent"
-                    initial={{ width: 0 }}
-                    animate={{ width: isLoaded ? "100%" : 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  />
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">Your Space</span>
-              </motion.h1>
-              <motion.div 
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: "120px" }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-                className="h-1 bg-white mb-4"
-              />
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl mb-6 text-blue-50 max-w-lg leading-relaxed"
-              >
-                Experience the difference of my personalized cleaning approach. I'm dedicated to reducing bacteria, 
-                germs, and allergens in your space, improving your health and well-being.
-              </motion.p>
-            </div>
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+              variants={itemVariants}
+            >
+              Professional <br/>
+              <span className="gradient-text">Health-Focused</span><br/>
+              Cleaning Services
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl text-gray-300 mb-6"
+              variants={itemVariants}
+            >
+              Creating cleaner, healthier spaces with scientific cleaning approaches that enhance wellbeing and reduce illness risk.
+            </motion.p>
+            
+            {/* Animated Stats */}
+            <motion.div
+              className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 mb-8 border border-blue-600/20"
+              variants={itemVariants}
+              animate={controls}
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center">
+                  {statsAndFeatures[currentStatIndex].icon}
+                </div>
+                <div>
+                  <div className="text-2xl font-bold gradient-text mb-1">
+                    {statsAndFeatures[currentStatIndex].stat}
+                  </div>
+                  <p className="text-gray-300">
+                    {statsAndFeatures[currentStatIndex].text}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+            
             <motion.div 
               variants={itemVariants}
               className="flex flex-wrap gap-4 relative"
@@ -290,188 +205,165 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          <div className="hidden md:block">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 0.5,
-                type: "spring",
-                stiffness: 100,
-                damping: 20
-              }}
-              className="grid grid-cols-1 gap-5"
-            >
-              {/* 3D Virus Visualization */}
-              <motion.div 
-                className="h-[380px] w-full relative mb-5 rounded-2xl overflow-hidden"
-                whileHover={{ 
-                  boxShadow: "0 0 25px rgba(56, 189, 248, 0.2)",
-                }}
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <motion.div
-                  className="absolute inset-0 z-10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                >
-                  <Virus3DCanvas />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-600/20 z-20 pointer-events-none" />
-                
-                {/* Animated border */}
-                <motion.div 
-                  className="absolute inset-0 border border-blue-400/30 rounded-2xl z-30 pointer-events-none"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 1.2 }}
-                />
-                
-                {/* Corner accents */}
-                <motion.div 
-                  className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-400/50 rounded-tl-2xl z-30"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 1.3 }}
-                />
-                <motion.div 
-                  className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-400/50 rounded-br-2xl z-30"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 1.5 }}
-                />
-              </motion.div>
-              
-              {/* Info cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.7, 
-                  delay: 1,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{ boxShadow: "0 0 30px rgba(8, 145, 178, 0.15)" }}
-                className="bg-gray-800/30 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/10 relative overflow-hidden"
-              >
-                <div className="grid grid-cols-1 gap-5 relative z-10">
-                  <motion.div 
-                    className="flex items-start space-x-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1.1 }}
-                    whileHover={{ x: 5 }}
+          {/* Right Column - Visual Elements */}
+          <motion.div 
+            className="lg:col-span-6 relative"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ 
+              duration: 1, 
+              delay: 0.6,
+              type: "spring",
+              stiffness: 50
+            }}
+          >
+            {/* Decorative visual element */}
+            <div className="relative h-96 sm:h-[450px] flex items-center justify-center overflow-hidden rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-cyan-900/40 animate-gradient"></div>
+              <div className="absolute inset-0 backdrop-blur-sm bg-gray-900/40 border border-blue-500/20 rounded-xl overflow-hidden">
+                {/* 3D animation space */}
+                <div className="absolute inset-0">
+                  {/* Glowing Orb */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <motion.div
+                      className="w-40 h-40 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 opacity-70 blur-xl"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.7, 0.5],
+                      }}
+                      transition={{ 
+                        duration: 8, 
+                        repeat: Infinity,
+                        repeatType: "reverse"
+                      }}
+                    />
+                    <motion.div
+                      className="absolute inset-0 w-40 h-40 rounded-full bg-gradient-to-br from-cyan-300 to-blue-500 opacity-70 blur-md"
+                      animate={{ 
+                        rotate: 360,
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{ 
+                        rotate: {
+                          duration: 20,
+                          repeat: Infinity,
+                          ease: "linear"
+                        },
+                        scale: {
+                          duration: 5,
+                          repeat: Infinity,
+                          repeatType: "reverse"
+                        }
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Orbiting particles */}
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 w-48 h-48 rounded-full"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "center" }}
                   >
-                    <ShieldCheck className="h-8 w-8 text-cyan-200" />
-                    <div>
-                      <h3 className="text-xl font-semibold">Reduce Harmful Bacteria</h3>
-                      <p className="text-blue-50">My detailed cleaning reduces harmful bacteria by up to 80%.</p>
-                    </div>
+                    <motion.div
+                      className="absolute w-3 h-3 rounded-full bg-cyan-300"
+                      style={{ left: "0%", top: "50%" }}
+                    />
                   </motion.div>
-                  <motion.div 
-                    className="flex items-start space-x-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1.2 }}
-                    whileHover={{ x: 5 }}
+                  
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 w-80 h-80 rounded-full"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "center" }}
                   >
-                    <Droplets className="h-8 w-8 text-cyan-200" />
-                    <div>
-                      <h3 className="text-xl font-semibold">Improve Air Quality</h3>
-                      <p className="text-blue-50">I eliminate allergens to improve breathing for your family.</p>
-                    </div>
+                    <motion.div
+                      className="absolute w-4 h-4 rounded-full bg-blue-400"
+                      style={{ left: "0%", top: "50%" }}
+                    />
                   </motion.div>
-                  <motion.div 
-                    className="flex items-start space-x-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1.3 }}
-                    whileHover={{ x: 5 }}
+                  
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "center" }}
                   >
-                    <Wind className="h-8 w-8 text-cyan-200" />
-                    <div>
-                      <h3 className="text-xl font-semibold">Personal Commitment</h3>
-                      <p className="text-blue-50">Every space receives my personal attention to detail.</p>
-                    </div>
+                    <motion.div
+                      className="absolute w-2 h-2 rounded-full bg-white"
+                      style={{ left: "0%", top: "50%" }}
+                    />
                   </motion.div>
                 </div>
-                
-                {/* Background accents */}
-                <motion.div 
-                  className="absolute top-0 right-0 w-40 h-40 bg-blue-400/5 rounded-full blur-3xl"
-                  animate={{ 
-                    scale: [1, 1.4, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    x: [0, 10, 0],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{ 
-                    duration: 10,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                />
-              </motion.div>
+              </div>
+            </div>
+            
+            {/* Animated Features */}
+            <motion.div 
+              className="absolute -bottom-10 sm:right-12 bg-gray-800/80 backdrop-blur-md p-5 rounded-xl border border-blue-500/20 shadow-xl max-w-xs"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            >
+              <h3 className="text-lg font-semibold text-white mb-2">Scientifically Backed Cleaning</h3>
+              <p className="text-gray-300 text-sm mb-3">
+                My approach combines microbiology research with effective cleaning techniques to eliminate harmful pathogens.
+              </p>
+              <div className="flex gap-2">
+                <span className="inline-block px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded-full">
+                  Health-Focused
+                </span>
+                <span className="inline-block px-2 py-1 bg-cyan-900/50 text-cyan-300 text-xs rounded-full">
+                  Eco-Friendly
+                </span>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-      
-      {/* Mobile cards - only visible on small screens */}
-      <div className="md:hidden px-4 pb-12 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          whileHover={{ y: -5 }}
-          className="bg-gray-800/30 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/10 relative overflow-hidden"
-        >
-          <div className="grid grid-cols-1 gap-6 relative z-10">
-            <motion.div 
-              className="flex items-start space-x-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1 }}
-            >
-              <ShieldCheck className="h-7 w-7 text-cyan-200 flex-shrink-0" />
-              <div>
-                <h3 className="text-lg font-semibold">Reduce Harmful Bacteria</h3>
-                <p className="text-blue-50 text-sm">My detailed cleaning reduces harmful bacteria by up to 80%.</p>
-              </div>
-            </motion.div>
-            <motion.div 
-              className="flex items-start space-x-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-            >
-              <Droplets className="h-7 w-7 text-cyan-200 flex-shrink-0" />
-              <div>
-                <h3 className="text-lg font-semibold">Improve Air Quality</h3>
-                <p className="text-blue-50 text-sm">I eliminate allergens to improve breathing for your family.</p>
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* Background accent */}
-          <motion.div 
-            className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-400/5 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{ 
-              duration: 8,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+        
+        {/* Floating particles for visual interest */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <FloatingParticle 
+            size="8px" 
+            color="bg-cyan-300/30" 
+            delay={0} 
+            duration={18}
+            x={['10%', '15%', '5%', '12%']} 
+            y={['15%', '60%', '40%', '15%']} 
           />
-        </motion.div>
+          <FloatingParticle 
+            size="12px" 
+            color="bg-blue-300/20" 
+            delay={2} 
+            duration={22}
+            x={['80%', '75%', '85%']} 
+            y={['20%', '50%', '20%']} 
+          />
+          <FloatingParticle 
+            size="6px" 
+            color="bg-white/30" 
+            delay={1.5} 
+            duration={15}
+            x={['45%', '52%', '48%']} 
+            y={['70%', '30%', '70%']} 
+          />
+          <FloatingParticle 
+            size="10px" 
+            color="bg-blue-200/20" 
+            delay={3} 
+            duration={20}
+            x={['20%', '30%', '25%']} 
+            y={['80%', '40%', '80%']} 
+          />
+          <FloatingParticle 
+            size="14px" 
+            color="bg-cyan-200/20" 
+            delay={0.5} 
+            duration={25}
+            x={['90%', '70%', '90%']} 
+            y={['90%', '30%', '90%']} 
+          />
+        </div>
       </div>
     </section>
   );

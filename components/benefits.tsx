@@ -15,6 +15,7 @@ import {
   RadialLinearScale,
 } from 'chart.js';
 import { Bar, Doughnut, Radar } from 'react-chartjs-2';
+import Link from 'next/link';
 
 // Register ChartJS components
 ChartJS.register(
@@ -658,13 +659,15 @@ const Benefits = () => {
                 Schedule a free consultation to experience the difference my aromatherapy-enhanced cleaning can make.
               </p>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gray-800 text-blue-400 font-medium rounded-md shadow-lg hover:shadow-xl transition"
-            >
-              Book a Consultation
-            </motion.button>
+            <Link href="/services">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 bg-gray-800 text-blue-400 font-medium rounded-md shadow-lg hover:shadow-xl transition"
+              >
+                Explore Services
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>

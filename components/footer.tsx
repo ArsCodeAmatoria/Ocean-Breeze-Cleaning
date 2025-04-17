@@ -66,25 +66,25 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-blue-700/30 pb-2 text-white">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
+                <Link href="/services#residential" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Residential Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
+                <Link href="/services#commercial" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Commercial Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
+                <Link href="/services#deep-sanitization" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Deep Sanitization
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
+                <Link href="/services#post-construction" className="text-gray-300 hover:text-cyan-400 transition flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Post-Construction
                 </Link>
