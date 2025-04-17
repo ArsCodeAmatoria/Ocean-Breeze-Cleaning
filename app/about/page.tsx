@@ -22,12 +22,12 @@ const fadeIn = {
 
 export default function AboutPage() {
   return (
-    <main className="bg-neutral-dark text-white min-h-screen">
+    <main className="bg-neutral-dark dark:bg-gray-900 text-white min-h-screen">
       <Navbar />
       
-      <div className="fixed inset-0 z-[-1] bg-neutral-dark">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-neutral-dark"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent"></div>
+      <div className="fixed inset-0 z-[-1] bg-neutral-dark dark:bg-gray-900">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-neutral-dark dark:from-blue-950/20 dark:to-gray-900"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent dark:from-blue-950/10"></div>
       </div>
       
       <section className="relative pt-24 pb-16 overflow-hidden">
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
               <span className="gradient-text">About</span> Ocean Breeze Cleaning
             </h1>
-            <p className="text-xl text-neutral-light max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-light dark:text-gray-300 max-w-3xl mx-auto">
               Dedicated to creating healthier living spaces through science-based cleaning approaches.
             </p>
           </motion.div>
@@ -54,7 +54,7 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 opacity-20 blur-xl"></div>
-              <div className="relative overflow-hidden rounded-xl border border-blue-600/20 bg-neutral-dark/50 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-xl border border-blue-600/20 bg-neutral-dark/50 dark:bg-gray-800/50 backdrop-blur-sm">
                 <Image 
                   src="/images/karla.png" 
                   alt="Karla - Founder of Ocean Breeze Cleaning" 
@@ -75,12 +75,12 @@ export default function AboutPage() {
                 <span className="gradient-text">Meet Karla</span> - Founder &amp; Health-Focused Cleaning Expert
               </h2>
               
-              <p className="text-neutral-light text-lg">
+              <p className="text-neutral-light dark:text-gray-300 text-lg">
                 With a background in microbiology and a passion for creating healthier living environments, 
                 Karla founded Ocean Breeze Cleaning to address the hidden health impacts of unclean spaces.
               </p>
               
-              <p className="text-neutral-light text-lg">
+              <p className="text-neutral-light dark:text-gray-300 text-lg">
                 "I started Ocean Breeze Cleaning after witnessing how proper cleaning techniques could dramatically 
                 improve indoor air quality and reduce illness in my own family. What began as a personal mission 
                 has grown into a service that helps hundreds of families and businesses create truly healthy spaces."
@@ -88,22 +88,22 @@ export default function AboutPage() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-full bg-blue-600/20 flex items-center justify-center mr-4">
+                  <div className="h-10 w-10 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mr-4">
                     <Calendar className="h-5 w-5 text-cyan-400" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">Founded in 2018</h3>
-                    <p className="text-neutral-light">5+ years of excellence</p>
+                    <p className="text-neutral-light dark:text-gray-300">5+ years of excellence</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-full bg-blue-600/20 flex items-center justify-center mr-4">
+                  <div className="h-10 w-10 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mr-4">
                     <Award className="h-5 w-5 text-cyan-400" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">Health-Focused Approach</h3>
-                    <p className="text-neutral-light">Science-backed methods</p>
+                    <p className="text-neutral-light dark:text-gray-300">Science-backed methods</p>
                   </div>
                 </div>
               </div>
@@ -128,32 +128,32 @@ export default function AboutPage() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-neutral-dark/70 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="h-14 w-14 rounded-full bg-blue-600/20 flex items-center justify-center mb-6">
+              <div className="bg-neutral-dark/70 dark:bg-gray-800/70 backdrop-blur-sm border border-blue-600/20 dark:border-blue-700/20 rounded-xl p-6">
+                <div className="h-14 w-14 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mb-6">
                   <Leaf className="h-7 w-7 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-white">Eco-Friendly Products</h3>
-                <p className="text-neutral-light">
+                <p className="text-neutral-light dark:text-gray-300">
                   We use environmentally responsible cleaning solutions that effectively eliminate pathogens without harsh chemicals that can harm your health or the planet.
                 </p>
               </div>
               
-              <div className="bg-neutral-dark/70 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="h-14 w-14 rounded-full bg-blue-600/20 flex items-center justify-center mb-6">
+              <div className="bg-neutral-dark/70 dark:bg-gray-800/70 backdrop-blur-sm border border-blue-600/20 dark:border-blue-700/20 rounded-xl p-6">
+                <div className="h-14 w-14 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mb-6">
                   <Briefcase className="h-7 w-7 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-white">Advanced Techniques</h3>
-                <p className="text-neutral-light">
+                <p className="text-neutral-light dark:text-gray-300">
                   Our methods are based on scientific research about how pathogens spread and survive in home environments, allowing us to target high-risk areas effectively.
                 </p>
               </div>
               
-              <div className="bg-neutral-dark/70 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="h-14 w-14 rounded-full bg-blue-600/20 flex items-center justify-center mb-6">
+              <div className="bg-neutral-dark/70 dark:bg-gray-800/70 backdrop-blur-sm border border-blue-600/20 dark:border-blue-700/20 rounded-xl p-6">
+                <div className="h-14 w-14 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mb-6">
                   <Heart className="h-7 w-7 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-white">Health-First Mindset</h3>
-                <p className="text-neutral-light">
+                <p className="text-neutral-light dark:text-gray-300">
                   We prioritize your family's health by removing allergens, reducing asthma triggers, and eliminating hidden contaminants that can affect your wellbeing.
                 </p>
               </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-neutral-dark/70 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
+              <div className="bg-neutral-dark/70 dark:bg-gray-800/70 backdrop-blur-sm border border-blue-600/20 dark:border-blue-700/20 rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => (
@@ -179,16 +179,16 @@ export default function AboutPage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-neutral-light italic mb-4">
+                <p className="text-neutral-light dark:text-gray-300 italic mb-4">
                   "Since switching to Ocean Breeze Cleaning, my family has experienced fewer allergy symptoms and respiratory issues. Their attention to detail and health-focused approach has made a noticeable difference in our home environment."
                 </p>
                 <div>
                   <h4 className="font-semibold text-white">Sarah Johnson</h4>
-                  <p className="text-sm text-neutral">Homeowner</p>
+                  <p className="text-sm text-neutral dark:text-gray-400">Homeowner</p>
                 </div>
               </div>
               
-              <div className="bg-neutral-dark/70 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
+              <div className="bg-neutral-dark/70 dark:bg-gray-800/70 backdrop-blur-sm border border-blue-600/20 dark:border-blue-700/20 rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => (
@@ -196,12 +196,12 @@ export default function AboutPage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-neutral-light italic mb-4">
+                <p className="text-neutral-light dark:text-gray-300 italic mb-4">
                   "As a pediatric clinic, we needed a cleaning service that understood the importance of thorough sanitization. Ocean Breeze not only meets but exceeds our expectations. Their commitment to health has helped us maintain a safe environment for our young patients."
                 </p>
                 <div>
                   <h4 className="font-semibold text-white">Dr. Michael Chen</h4>
-                  <p className="text-sm text-neutral">Medical Practice Owner</p>
+                  <p className="text-sm text-neutral dark:text-gray-400">Medical Practice Owner</p>
                 </div>
               </div>
             </div>
