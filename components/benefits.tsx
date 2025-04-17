@@ -223,7 +223,7 @@ const Benefits = () => {
   };
   
   return (
-    <section id="benefits" className="py-20 bg-gray-50">
+    <section id="benefits" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -241,7 +241,7 @@ const Benefits = () => {
           >
             Why Clean Matters
           </motion.span>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Health Benefits of <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Professional Cleaning</span>
           </h2>
           <motion.div 
@@ -251,7 +251,7 @@ const Benefits = () => {
             viewport={{ once: true }}
             className="h-1 bg-cyan-500/60 mx-auto mb-5"
           />
-          <p className="text-lg text-neutral-DEFAULT max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Discover how my professional cleaning services with aromatherapy elements can transform your space into 
             a healthier and more rejuvenating environment.
           </p>
@@ -263,7 +263,7 @@ const Benefits = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 bg-gradient-to-r from-blue-50 to-teal-50 p-8 rounded-xl shadow-md"
+          className="mb-12 bg-gray-800 p-8 rounded-xl shadow-md"
         >
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3 flex justify-center">
@@ -271,7 +271,7 @@ const Benefits = () => {
                 <motion.div 
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-400/20 to-blue-400/20 blur-md"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-900/20 to-blue-900/20 blur-md"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Flower className="h-24 w-24 text-teal-500" />
@@ -279,35 +279,35 @@ const Benefits = () => {
               </div>
             </div>
             <div className="md:w-2/3">
-              <h3 className="text-2xl font-bold text-neutral-dark mb-3">The Aromatherapy Difference</h3>
-              <p className="text-neutral-DEFAULT mb-4">
+              <h3 className="text-2xl font-bold text-white mb-3">The Aromatherapy Difference</h3>
+              <p className="text-gray-300 mb-4">
                 I enhance my cleaning services with carefully selected essential oils that not only leave your space smelling 
                 wonderful but provide genuine health benefits backed by research:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-100 flex items-center justify-center">
+                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-900/30 flex items-center justify-center">
                     <div className="h-2 w-2 rounded-full bg-teal-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-neutral-DEFAULT">Lavender for stress reduction and better sleep</p>
+                  <p className="ml-2 text-sm text-gray-300">Lavender for stress reduction and better sleep</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-100 flex items-center justify-center">
+                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-900/30 flex items-center justify-center">
                     <div className="h-2 w-2 rounded-full bg-teal-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-neutral-DEFAULT">Lemon for improved mood and energy</p>
+                  <p className="ml-2 text-sm text-gray-300">Lemon for improved mood and energy</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-100 flex items-center justify-center">
+                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-900/30 flex items-center justify-center">
                     <div className="h-2 w-2 rounded-full bg-teal-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-neutral-DEFAULT">Eucalyptus for respiratory health and focus</p>
+                  <p className="ml-2 text-sm text-gray-300">Eucalyptus for respiratory health and focus</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-100 flex items-center justify-center">
+                  <div className="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-teal-900/30 flex items-center justify-center">
                     <div className="h-2 w-2 rounded-full bg-teal-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-neutral-DEFAULT">Tea tree for natural antimicrobial properties</p>
+                  <p className="ml-2 text-sm text-gray-300">Tea tree for natural antimicrobial properties</p>
                 </div>
               </div>
             </div>
@@ -320,7 +320,7 @@ const Benefits = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-16 bg-white rounded-xl shadow-lg overflow-hidden"
+          className="mb-16 bg-gray-800 rounded-xl shadow-lg overflow-hidden"
         >
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-6 text-white">
             <h3 className="text-2xl font-bold mb-2">Aromatherapy & Cleaning Science</h3>
@@ -331,11 +331,11 @@ const Benefits = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               {/* Mental Wellbeing Impact */}
               <div>
-                <h4 className="text-xl font-semibold mb-4 text-neutral-dark flex items-center">
-                  <Brain className="h-6 w-6 text-blue-600 mr-2" />
+                <h4 className="text-xl font-semibold mb-4 text-white flex items-center">
+                  <Brain className="h-6 w-6 text-blue-400 mr-2" />
                   Mental Wellbeing Impact
                 </h4>
-                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                <div className="bg-gray-700 p-4 rounded-lg mb-4">
                   <div className="h-64">
                     <Bar 
                       data={mentalWellbeingData}
@@ -348,7 +348,22 @@ const Benefits = () => {
                             max: 100,
                             title: {
                               display: true,
-                              text: 'Improvement (%)'
+                              text: 'Improvement (%)',
+                              color: '#e5e7eb'
+                            },
+                            ticks: {
+                              color: '#e5e7eb'
+                            },
+                            grid: {
+                              color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                          },
+                          x: {
+                            ticks: {
+                              color: '#e5e7eb'
+                            },
+                            grid: {
+                              color: 'rgba(255, 255, 255, 0.1)'
                             }
                           }
                         },
@@ -358,7 +373,8 @@ const Benefits = () => {
                             labels: {
                               usePointStyle: true,
                               padding: 15,
-                              boxWidth: 10
+                              boxWidth: 10,
+                              color: '#e5e7eb'
                             }
                           }
                         }
@@ -366,19 +382,19 @@ const Benefits = () => {
                     />
                   </div>
                 </div>
-                <div className="text-sm text-neutral-DEFAULT p-3 bg-blue-50 rounded-lg border-l-3 border-blue-500">
-                  <p className="font-medium text-blue-700 mb-1">Did you know?</p>
+                <div className="text-sm text-gray-300 p-3 bg-blue-900/20 rounded-lg border-l-3 border-blue-500">
+                  <p className="font-medium text-blue-400 mb-1">Did you know?</p>
                   <p>Studies have shown that certain essential oils can reduce anxiety by up to 65% and improve cognitive function by up to 30%, creating a more productive and comfortable environment.</p>
                 </div>
               </div>
 
               {/* Antimicrobial Effectiveness */}
               <div>
-                <h4 className="text-xl font-semibold mb-4 text-neutral-dark flex items-center">
-                  <Shield className="h-6 w-6 text-cyan-500 mr-2" />
+                <h4 className="text-xl font-semibold mb-4 text-white flex items-center">
+                  <Shield className="h-6 w-6 text-cyan-400 mr-2" />
                   Antimicrobial Properties
                 </h4>
-                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                <div className="bg-gray-700 p-4 rounded-lg mb-4">
                   <div className="h-64 flex items-center justify-center">
                     <Doughnut 
                       data={antimicrobialData}
@@ -391,7 +407,8 @@ const Benefits = () => {
                             labels: {
                               usePointStyle: true,
                               padding: 15,
-                              boxWidth: 10
+                              boxWidth: 10,
+                              color: '#e5e7eb'
                             }
                           },
                           tooltip: {
@@ -409,8 +426,8 @@ const Benefits = () => {
                     />
                   </div>
                 </div>
-                <div className="text-sm text-neutral-DEFAULT p-3 bg-cyan-50 rounded-lg border-l-3 border-cyan-500">
-                  <p className="font-medium text-cyan-700 mb-1">Scientific fact:</p>
+                <div className="text-sm text-gray-300 p-3 bg-cyan-900/20 rounded-lg border-l-3 border-cyan-500">
+                  <p className="font-medium text-cyan-400 mb-1">Scientific fact:</p>
                   <p>Many essential oils have been clinically proven to have powerful antimicrobial properties, with some oils like tea tree being as effective as common chemical disinfectants without the harmful effects.</p>
                 </div>
               </div>
@@ -418,7 +435,7 @@ const Benefits = () => {
 
             {/* Explore Essential Oils Section */}
             <div className="mt-10 mb-6">
-              <h4 className="text-xl font-semibold mb-6 text-neutral-dark text-center">Explore Essential Oil Benefits</h4>
+              <h4 className="text-xl font-semibold mb-6 text-white text-center">Explore Essential Oil Benefits</h4>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -430,7 +447,7 @@ const Benefits = () => {
                         className={`px-4 py-2 rounded-full whitespace-nowrap transition ${
                           index === activeOilIndex 
                             ? `bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md`
-                            : `bg-white text-neutral-DEFAULT border border-gray-200 hover:border-cyan-300`
+                            : `bg-gray-700 text-gray-300 border border-gray-600 hover:border-cyan-700`
                         }`}
                       >
                         {oil.name}
@@ -443,7 +460,7 @@ const Benefits = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-white p-5 rounded-xl shadow-sm border border-gray-100"
+                    className="bg-gray-700 p-5 rounded-xl shadow-sm border border-gray-600"
                   >
                     <div className="flex items-center mb-4">
                       <div 
@@ -455,10 +472,10 @@ const Benefits = () => {
                           style={{backgroundColor: essentialOilBenefits[activeOilIndex].color}}
                         ></div>
                       </div>
-                      <h5 className="text-xl font-semibold text-neutral-dark">{essentialOilBenefits[activeOilIndex].name}</h5>
+                      <h5 className="text-xl font-semibold text-white">{essentialOilBenefits[activeOilIndex].name}</h5>
                     </div>
                     
-                    <p className="text-neutral-DEFAULT mb-4">{essentialOilBenefits[activeOilIndex].description}</p>
+                    <p className="text-gray-300 mb-4">{essentialOilBenefits[activeOilIndex].description}</p>
                     
                     <div className="grid grid-cols-1 gap-2">
                       {essentialOilBenefits[activeOilIndex].benefits.map((benefit, idx) => (
@@ -467,14 +484,14 @@ const Benefits = () => {
                             className="w-3 h-3 rounded-full mr-2"
                             style={{backgroundColor: essentialOilBenefits[activeOilIndex].color}}
                           ></div>
-                          <span className="text-sm text-neutral-DEFAULT">{benefit}</span>
+                          <span className="text-sm text-gray-300">{benefit}</span>
                         </div>
                       ))}
                     </div>
                   </motion.div>
                 </div>
                 
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-700 p-4 rounded-lg">
                   <div className="h-80">
                     <Radar
                       data={selectedOilRadarData}
@@ -488,19 +505,19 @@ const Benefits = () => {
                             ticks: {
                               stepSize: 20,
                               showLabelBackdrop: false,
-                              color: '#6B7280'
+                              color: '#9ca3af'
                             },
                             pointLabels: {
                               font: {
                                 size: 12
                               },
-                              color: '#111827'
+                              color: '#e5e7eb'
                             },
                             grid: {
-                              color: 'rgba(0, 0, 0, 0.05)'
+                              color: 'rgba(255, 255, 255, 0.1)'
                             },
                             angleLines: {
-                              color: 'rgba(0, 0, 0, 0.1)'
+                              color: 'rgba(255, 255, 255, 0.2)'
                             }
                           }
                         },
@@ -527,11 +544,11 @@ const Benefits = () => {
 
             {/* Aroma Lasting Effects */}
             <div className="mt-12">
-              <h4 className="text-xl font-semibold mb-4 text-neutral-dark flex items-center justify-center">
-                <Zap className="h-6 w-6 text-teal-500 mr-2" />
+              <h4 className="text-xl font-semibold mb-4 text-white flex items-center justify-center">
+                <Zap className="h-6 w-6 text-teal-400 mr-2" />
                 Aroma Lasting Effects
               </h4>
-              <div className="bg-gray-50 p-4 rounded-lg mb-4">
+              <div className="bg-gray-700 p-4 rounded-lg mb-4">
                 <div className="h-64">
                   <Bar 
                     data={aromaLastingEffectsData}
@@ -544,7 +561,22 @@ const Benefits = () => {
                           beginAtZero: true,
                           title: {
                             display: true,
-                            text: 'Hours of Pleasant Aroma'
+                            text: 'Hours of Pleasant Aroma',
+                            color: '#e5e7eb'
+                          },
+                          ticks: {
+                            color: '#e5e7eb'
+                          },
+                          grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                          }
+                        },
+                        y: {
+                          ticks: {
+                            color: '#e5e7eb'
+                          },
+                          grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
                           }
                         }
                       },
@@ -557,27 +589,27 @@ const Benefits = () => {
                   />
                 </div>
               </div>
-              <div className="text-sm text-neutral-DEFAULT p-3 bg-teal-50 rounded-lg border-l-3 border-teal-500">
-                <p className="font-medium text-teal-700 mb-1">Health insight:</p>
+              <div className="text-sm text-gray-300 p-3 bg-teal-900/20 rounded-lg border-l-3 border-teal-500">
+                <p className="font-medium text-teal-400 mb-1">Health insight:</p>
                 <p>The longer-lasting aromas from premium essential oils continue to provide therapeutic benefits long after cleaning is complete. This creates an environment that supports mental wellbeing and physical health for a full day.</p>
               </div>
             </div>
 
             {/* Key Findings Box */}
-            <div className="mt-10 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-cyan-100">
-              <h4 className="text-lg font-semibold text-neutral-dark mb-4">Key Aromatherapy Benefits in Cleaning</h4>
+            <div className="mt-10 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-xl p-6 border border-cyan-900/50">
+              <h4 className="text-lg font-semibold text-white mb-4">Key Aromatherapy Benefits in Cleaning</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="text-teal-500 font-bold text-xl mb-1">78%</div>
-                  <p className="text-sm text-neutral-DEFAULT">Report better mood after aromatherapy cleaning vs. conventional cleaning</p>
+                <div className="bg-gray-800 p-4 rounded-lg shadow-sm">
+                  <div className="text-teal-400 font-bold text-xl mb-1">78%</div>
+                  <p className="text-sm text-gray-300">Report better mood after aromatherapy cleaning vs. conventional cleaning</p>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="text-blue-600 font-bold text-xl mb-1">65%</div>
-                  <p className="text-sm text-neutral-DEFAULT">Reduction in airborne bacteria when using antimicrobial essential oils</p>
+                <div className="bg-gray-800 p-4 rounded-lg shadow-sm">
+                  <div className="text-blue-400 font-bold text-xl mb-1">65%</div>
+                  <p className="text-sm text-gray-300">Reduction in airborne bacteria when using antimicrobial essential oils</p>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="text-cyan-500 font-bold text-xl mb-1">85%</div>
-                  <p className="text-sm text-neutral-DEFAULT">Of people prefer essential oil scents to synthetic chemical smells</p>
+                <div className="bg-gray-800 p-4 rounded-lg shadow-sm">
+                  <div className="text-cyan-400 font-bold text-xl mb-1">85%</div>
+                  <p className="text-sm text-gray-300">Of people prefer essential oil scents to synthetic chemical smells</p>
                 </div>
               </div>
             </div>
@@ -595,7 +627,7 @@ const Benefits = () => {
             <motion.div
               key={index}
               variants={item}
-              className={`bg-white p-6 rounded-xl shadow-md border-t-4 ${
+              className={`bg-gray-800 p-6 rounded-xl shadow-md border-t-4 ${
                 benefit.title.includes('Aroma') || benefit.title.includes('Scents') 
                   ? 'border-teal-500' 
                   : index % 2 === 0 
@@ -605,9 +637,9 @@ const Benefits = () => {
             >
               <div className="flex items-center mb-4">
                 {benefit.icon}
-                <h3 className="text-xl font-semibold ml-3 text-neutral-dark">{benefit.title}</h3>
+                <h3 className="text-xl font-semibold ml-3 text-white">{benefit.title}</h3>
               </div>
-              <p className="text-neutral-DEFAULT">{benefit.description}</p>
+              <p className="text-gray-300">{benefit.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -629,7 +661,7 @@ const Benefits = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-white text-blue-600 font-medium rounded-md shadow-lg hover:shadow-xl transition"
+              className="px-6 py-3 bg-gray-800 text-blue-400 font-medium rounded-md shadow-lg hover:shadow-xl transition"
             >
               Book a Consultation
             </motion.button>

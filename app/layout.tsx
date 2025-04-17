@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  themeColor: '#0f172a', // Dark theme color
 }
 
 export default function RootLayout({
@@ -32,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${inter.className} bg-gray-900 text-white min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
           {children}
         </ThemeProvider>
       </body>

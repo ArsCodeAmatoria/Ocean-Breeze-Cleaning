@@ -1,266 +1,212 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRightCircle } from 'lucide-react';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
-import dynamic from 'next/dynamic';
-
-// Dynamically import the 3D components to avoid SSR issues
-const MicrobeScene = dynamic(() => import('../components/3d/MicrobeScene'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="animate-pulse text-white text-xl">Loading 3D Scene...</div>
-    </div>
-  )
-});
+import React, { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ShieldCheck, Droplet, Wind, ChevronDown } from 'lucide-react'
+import Navbar from '@/components/navbar'
+import Hero from '@/components/hero'
+import About from '@/components/about'
+import Benefits from '@/components/benefits'
+import DataAnalysis from '@/components/data-analysis'
+import Footer from '@/components/footer'
+import ParticleBackground from '@/components/ParticleBackground'
+import GlowingButton from '@/components/ui/GlowingButton'
+import FloatingCard from '@/components/FloatingCard'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false)
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+  const { scrollYProgress } = useScroll()
+  
+  // Transform values for parallax effects
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 300])
+  const opacityScrollDown = useTransform(scrollYProgress, [0, 0.05], [1, 0])
+  
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+    
+    // Hide scroll indicator after 5 seconds
+    const timer = setTimeout(() => {
+      setShowScrollIndicator(false)
+    }, 5000)
+    
+    // Check if user has scrolled
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false)
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <main className="overflow-hidden bg-neutral-dark">
-      <Navbar />
+    <div className="relative min-h-screen overflow-hidden bg-gray-900">
+      {/* Particle background */}
+      {mounted && (
+        <div className="fixed inset-0 -z-10">
+          <ParticleBackground 
+            particleCount={70}
+            colors={['#0e7490', '#155e75']}
+            interactive={false}
+          />
+        </div>
+      )}
       
-      <div className="horizontal-scroll-container">
-        {/* Section 1: Hero with 3D viruses */}
-        <section className="horizontal-section flex flex-col justify-center">
-          <div className="relative w-full h-full">
-            {/* 3D Scene as background */}
-            <div className="absolute inset-0 z-0">
-              <MicrobeScene density={20} autoRotate={true} showControls={false} />
-            </div>
-            
-            {/* Overlay content */}
-            <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
-              <div className="max-w-4xl">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
-                  <span className="gradient-text">Clean Spaces.</span>
-                  <br />
-                  <span className="text-white">Healthier Lives.</span>
-                </h1>
-                <p className="text-xl text-neutral mb-8 max-w-3xl mx-auto">
-                  Ocean Breeze Cleaning uses advanced cleaning techniques and health-focused 
-                  approaches to eliminate pathogens and create safer environments for your family.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="#microbes"
-                    className="px-8 py-3 rounded-md text-lg font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg transition duration-300"
-                  >
-                    Explore the Science
-                  </Link>
-                  <Link
-                    href="#contact"
-                    className="px-8 py-3 rounded-md text-lg font-medium bg-neutral-dark border border-blue-600 text-white hover:bg-blue-600/10 transition duration-300"
-                  >
-                    Get a Quote
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Scroll indicator */}
-              <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center">
-                <p className="mb-2 text-sm">Scroll Right</p>
-                <ArrowRightCircle className="h-8 w-8 animate-pulse" />
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Section 2: Common Microbes */}
-        <section id="microbes" className="horizontal-section bg-gradient-to-br from-neutral-dark to-zinc-900">
-          <div className="h-full w-full flex flex-col lg:flex-row">
-            {/* Left content */}
-            <div className="flex-1 flex flex-col justify-center items-center lg:items-start p-8 lg:p-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
-                The Hidden Threats
-              </h2>
-              <p className="text-xl text-neutral mb-10 max-w-2xl">
-                Your home harbors millions of microorganisms that can impact your health. 
-                From viruses to bacteria, these invisible threats require professional 
-                cleaning techniques to effectively eliminate.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
-                {/* Virus cards */}
-                <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                  <h3 className="text-2xl font-semibold mb-3 text-blue-400">Viruses</h3>
-                  <ul className="space-y-3 text-neutral">
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                      <span>Coronavirus (lives up to 3 days on surfaces)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-orange-500 mr-2"></div>
-                      <span>Rhinovirus (common cold)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                      <span>Influenza (survives 24-48 hours)</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                {/* Bacteria cards */}
-                <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                  <h3 className="text-2xl font-semibold mb-3 text-cyan-400">Bacteria</h3>
-                  <ul className="space-y-3 text-neutral">
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                      <span>E. coli (found on 90% of bathroom surfaces)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
-                      <span>Streptococcus (causes strep throat)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
-                      <span>Salmonella (lives up to 4 hours on surfaces)</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            {/* Right content - 3D model */}
-            <div className="flex-1 relative">
-              <div className="absolute inset-0">
-                <MicrobeScene 
-                  density={6} 
-                  interactive={true} 
-                  autoRotate={false} 
-                  showControls={true}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Section 3: Cleaning Effect */}
-        <section className="horizontal-section bg-gradient-to-br from-zinc-900 to-blue-900/40">
-          <div className="h-full w-full flex flex-col lg:flex-row">
-            {/* Left - 3D cleaning effect */}
-            <div className="flex-1 relative">
-              <div className="absolute inset-0">
-                <MicrobeScene 
-                  density={15} 
-                  cleaningEffect={true} 
-                  showControls={false}
-                />
-              </div>
-            </div>
-            
-            {/* Right content */}
-            <div className="flex-1 flex flex-col justify-center items-center lg:items-start p-8 lg:p-16 z-10 backdrop-blur-sm bg-black/20">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
-                The Ocean Breeze Difference
-              </h2>
-              <p className="text-xl text-neutral mb-10 max-w-2xl">
-                Our scientifically-proven cleaning methods don't just mask dirt – they eliminate 
-                harmful pathogens at the source. Using advanced techniques and health-focused 
-                approaches, we create spaces that are truly clean and healthy.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
-                <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                  <h3 className="text-2xl font-semibold mb-3 gradient-text">99.9% Effective</h3>
-                  <p className="text-neutral">
-                    Our cleaning techniques eliminate up to 99.9% of viruses and bacteria, 
-                    significantly reducing the risk of illness in your home or office.
-                  </p>
-                </div>
-                
-                <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                  <h3 className="text-2xl font-semibold mb-3 gradient-text">Health-Focused</h3>
-                  <p className="text-neutral">
-                    We use health-safe products and techniques that are effective against 
-                    pathogens while being gentle on your family and the environment.
-                  </p>
-                </div>
-              </div>
-              
-              <Link
-                href="#contact"
-                className="mt-10 px-8 py-3 rounded-md text-lg font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg transition duration-300"
-              >
-                Experience the Difference
-              </Link>
-            </div>
-          </div>
-        </section>
-        
-        {/* Section 4: Data & Benefits */}
-        <section className="horizontal-section bg-gradient-to-br from-blue-900/40 to-zinc-900">
-          <div className="h-full w-full flex flex-col justify-center items-center p-8 lg:p-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-10 gradient-text text-center">
-              The Science Behind Clean Spaces
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">70%</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Reduced Sick Days</h3>
-                <p className="text-neutral">
-                  Regular professional cleaning can reduce illness-related absences by up to 70% according to studies.
-                </p>
-              </div>
-              
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">80%</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Improved Air Quality</h3>
-                <p className="text-neutral">
-                  Professional cleaning removes allergens and particles that lower indoor air quality by up to 80%.
-                </p>
-              </div>
-              
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">65%</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Lower Stress Levels</h3>
-                <p className="text-neutral">
-                  Studies show that clean environments can reduce stress and anxiety by up to 65%.
-                </p>
-              </div>
-              
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">5x</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Better Than DIY Cleaning</h3>
-                <p className="text-neutral">
-                  Professional cleaning removes up to 5 times more contaminants than typical household cleaning.
-                </p>
-              </div>
-              
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">99.9%</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Pathogen Elimination</h3>
-                <p className="text-neutral">
-                  Our specialized cleaning protocols kill 99.9% of common household pathogens.
-                </p>
-              </div>
-              
-              <div className="bg-neutral-dark/50 backdrop-blur-sm border border-blue-600/20 rounded-xl p-6">
-                <div className="text-4xl font-bold mb-3 gradient-text">50%</div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Reduced Allergies</h3>
-                <p className="text-neutral">
-                  Regular professional cleaning can reduce allergy symptoms by up to 50%.
-                </p>
-              </div>
-            </div>
-            
-            <Link
-              href="#contact"
-              className="mt-12 px-8 py-3 rounded-md text-lg font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg transition duration-300"
+      {/* Main Content */}
+      <Navbar />
+      <Hero />
+      <About />
+      <div className="relative">
+        {/* Feature Cards */}
+        <section className="relative py-20 overflow-hidden bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="text-center mb-16"
             >
-              Book Your Cleaning
-            </Link>
+              <h2 className="text-4xl font-bold mb-4">
+                <span className="gradient-text">Experience the Difference</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                More than just cleaning—a scientifically-backed approach to creating healthier spaces
+                through advanced sanitization techniques and eco-friendly solutions.
+              </p>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FloatingCard
+                title="Advanced Sanitization"
+                subtitle="Targeting invisible threats"
+                darkMode={true}
+                delay={0}
+                depth={3}
+                icon={
+                  <div className="w-14 h-14 rounded-full bg-blue-900/30 flex items-center justify-center">
+                    <ShieldCheck className="h-8 w-8 text-cyan-400" />
+                  </div>
+                }
+              >
+                <p className="text-gray-300">
+                  Our specialized cleaning process eliminates up to 99.9% of bacteria and viruses using
+                  hospital-grade disinfectants and techniques validated by scientific research.
+                </p>
+                <div className="mt-4">
+                  <GlowingButton 
+                    href="#microbes" 
+                    type="secondary" 
+                    size="sm"
+                  >
+                    Learn more
+                  </GlowingButton>
+                </div>
+              </FloatingCard>
+              
+              <FloatingCard
+                title="Eco-Friendly Products"
+                subtitle="Safe for your family and planet"
+                darkMode={true}
+                delay={0.5}
+                depth={5}
+                icon={
+                  <div className="w-14 h-14 rounded-full bg-blue-900/30 flex items-center justify-center">
+                    <Droplet className="h-8 w-8 text-cyan-400" />
+                  </div>
+                }
+              >
+                <p className="text-gray-300">
+                  We use environmentally responsible cleaning solutions that effectively eliminate pathogens
+                  without the harsh chemicals that can harm your health or the planet.
+                </p>
+                <div className="mt-4">
+                  <GlowingButton 
+                    href="/about" 
+                    type="secondary" 
+                    size="sm"
+                  >
+                    Our approach
+                  </GlowingButton>
+                </div>
+              </FloatingCard>
+              
+              <FloatingCard
+                title="Improved Air Quality"
+                subtitle="Breathe easier, live better"
+                darkMode={true}
+                delay={1}
+                depth={4}
+                icon={
+                  <div className="w-14 h-14 rounded-full bg-blue-900/30 flex items-center justify-center">
+                    <Wind className="h-8 w-8 text-cyan-400" />
+                  </div>
+                }
+              >
+                <p className="text-gray-300">
+                  Our cleaning process removes airborne particles, allergens, and pollutants, 
+                  significantly improving indoor air quality and creating a healthier environment.
+                </p>
+                <div className="mt-4">
+                  <GlowingButton 
+                    href="#benefits" 
+                    type="secondary" 
+                    size="sm"
+                  >
+                    Discover benefits
+                  </GlowingButton>
+                </div>
+              </FloatingCard>
+            </div>
+            
+            <div className="mt-16 text-center">
+              <GlowingButton 
+                href="#contact" 
+                type="primary" 
+                size="lg"
+              >
+                Get a Free Consultation
+              </GlowingButton>
+            </div>
           </div>
-        </section>
-        
-        {/* Footer Section */}
-        <section className="horizontal-section">
-          <Footer />
         </section>
       </div>
-    </main>
-  );
+      <Benefits />
+      <DataAnalysis />
+      <Footer />
+      
+      {/* Scroll to top button */}
+      {mounted && <ScrollToTopButton />}
+      
+      {/* Scroll indicator */}
+      {showScrollIndicator && (
+        <motion.div 
+          className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50"
+          style={{ opacity: opacityScrollDown }}
+          animate={{ 
+            y: [0, 10, 0],
+          }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+        >
+          <div className="flex flex-col items-center">
+            <span className="text-white text-sm mb-2 opacity-70">Scroll to explore</span>
+            <ChevronDown className="text-white h-6 w-6 opacity-70" />
+          </div>
+        </motion.div>
+      )}
+    </div>
+  )
 } 

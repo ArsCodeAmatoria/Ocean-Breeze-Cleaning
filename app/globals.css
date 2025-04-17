@@ -6,8 +6,8 @@
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
   
-  --primary: 207 100% 50%;
-  --primary-light: 195 100% 47%;
+  --primary: 217 91% 60%;
+  --primary-light: 189 94% 43%;
   
   --secondary: 163 98% 42%;
   
@@ -17,7 +17,7 @@
   
   --neutral: 210 9% 75%;
   --neutral-light: 200 12% 95%;
-  --neutral-dark: 210 10% 16%;
+  --neutral-dark: 222 47% 11%;
   
   --muted: 240 5% 15%;
   --muted-foreground: 240 5% 65%;
@@ -28,49 +28,19 @@
   
   --radius: 0.5rem;
 
-  /* Light theme colors (existing) */
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  
   /* Dark theme colors */
-  --neutral-dark: 17, 17, 27;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 15, 23, 42;
+  
+  --neutral-dark: 17, 24, 39;
   --neutral: 75, 85, 99;
   --neutral-light: 209, 213, 219;
 }
 
-/* Dark mode theme */
-.dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  
-  --primary: 217 91% 60%;
-  --primary-light: 189 94% 43%;
-  
-  --muted: 240 5% 15%;
-  --muted-foreground: 240 5% 65%;
-  
-  --neutral-dark: 222 47% 11%;
-  --neutral: 217 19% 27%;
-  --neutral-light: 210 40% 96.1%;
-  
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-}
-
 html, body {
-  @apply bg-neutral-dark text-white overflow-x-hidden scrollbar-hide scroll-smooth;
+  @apply bg-gray-900 text-white overflow-x-hidden scrollbar-hide scroll-smooth;
   height: 100%;
-}
-
-.dark html, .dark body {
-  @apply bg-gray-900 text-white;
 }
 
 .scrollbar-hide {
@@ -128,11 +98,7 @@ html, body {
 
 @layer base {
   body {
-    @apply text-neutral-800 dark:text-white;
-  }
-  
-  .dark body {
-    @apply bg-gray-900;
+    @apply text-white bg-gray-900;
   }
 }
 
@@ -142,26 +108,14 @@ html, body {
   }
   
   .bg-neutral-dark {
-    background-color: rgb(var(--neutral-dark));
-  }
-  
-  .text-neutral-light {
-    color: rgb(var(--neutral-light));
-  }
-  
-  .text-neutral {
-    color: rgb(var(--neutral));
-  }
-  
-  .dark .bg-neutral-dark {
     @apply bg-gray-900;
   }
   
-  .dark .text-neutral-light {
+  .text-neutral-light {
     @apply text-gray-300;
   }
   
-  .dark .text-neutral {
+  .text-neutral {
     @apply text-gray-400;
   }
 }
