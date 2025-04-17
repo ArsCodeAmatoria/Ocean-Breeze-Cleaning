@@ -104,7 +104,7 @@ export default function Home() {
                 </p>
                 <div className="mt-4">
                   <GlowingButton 
-                    href="#microbes" 
+                    href="#data-analysis" 
                     type="secondary" 
                     size="sm"
                   >
