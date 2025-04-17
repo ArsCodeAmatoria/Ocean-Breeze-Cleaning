@@ -1,12 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Calendar, Award, Leaf, Briefcase, Heart, Star } from 'lucide-react';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
+import VirusWireframeContainer from '../../components/VirusWireframeContainer';
+import { useTheme } from 'next-themes';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -21,6 +23,16 @@ const fadeIn = {
 };
 
 export default function AboutPage() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  // Hydration fix
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  const isDarkMode = mounted && (theme === 'dark');
+
   return (
     <main className="bg-neutral-dark dark:bg-gray-900 text-white min-h-screen">
       <Navbar />
@@ -116,6 +128,72 @@ export default function AboutPage() {
               </Link>
             </motion.div>
           </div>
+          
+          {/* Virus Wireframe Section */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="mb-20"
+          >
+            <h2 className="text-3xl font-bold text-center mb-8">
+              <span className="gradient-text">The Science</span> Behind Clean Spaces
+            </h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-semibold mb-4 text-white">Understanding Microbes in Your Environment</h3>
+                <p className="text-neutral-light dark:text-gray-300 text-lg mb-4">
+                  Viruses, bacteria, and other pathogens are constantly present in our living spaces. These microscopic organisms 
+                  can significantly impact our health and well-being when allowed to proliferate.
+                </p>
+                <p className="text-neutral-light dark:text-gray-300 text-lg mb-4">
+                  My professional cleaning approach targets these microorganisms using scientifically proven methods
+                  that effectively reduce their presence and prevent their rapid regrowth.
+                </p>
+                <ul className="space-y-3 mt-6">
+                  <li className="flex items-start">
+                    <div className="h-6 w-6 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mr-3 mt-0.5">
+                      <div className="h-2 w-2 rounded-full bg-cyan-400"></div>
+                    </div>
+                    <p className="text-neutral-light dark:text-gray-300">
+                      <span className="text-white font-medium">Reduces viral and bacterial load</span> by up to 80% compared to standard cleaning
+                    </p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="h-6 w-6 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mr-3 mt-0.5">
+                      <div className="h-2 w-2 rounded-full bg-cyan-400"></div>
+                    </div>
+                    <p className="text-neutral-light dark:text-gray-300">
+                      <span className="text-white font-medium">Targets high-touch surfaces</span> where microorganisms concentrate and spread
+                    </p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="h-6 w-6 rounded-full bg-blue-600/20 dark:bg-blue-900/30 flex items-center justify-center mr-3 mt-0.5">
+                      <div className="h-2 w-2 rounded-full bg-cyan-400"></div>
+                    </div>
+                    <p className="text-neutral-light dark:text-gray-300">
+                      <span className="text-white font-medium">Improves air quality</span> by reducing airborne particulates and allergens
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Virus Wireframe Animation */}
+              <div>
+                {mounted && (
+                  <VirusWireframeContainer
+                    title="Visualizing Viral Structures"
+                    description="Understanding the microscopic threats in our environments helps us create better cleaning strategies."
+                    height="450px"
+                    wireframeColor={isDarkMode ? "#00aaff" : "#0088ff"}
+                    spikeColor={isDarkMode ? "#80dfff" : "#4db8ff"}
+                    darkMode={isDarkMode}
+                  />
+                )}
+              </div>
+            </div>
+          </motion.div>
           
           <motion.div
             initial="hidden"
