@@ -40,9 +40,9 @@ module.exports = {
           foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
         },
         neutral: {
-          DEFAULT: "#6C757D",
-          light: "#B0BEC5",
-          dark: "#212529",
+          DEFAULT: "var(--neutral)",
+          light: "var(--neutral-light)",
+          dark: "var(--neutral-dark)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive) / <alpha-value>)",

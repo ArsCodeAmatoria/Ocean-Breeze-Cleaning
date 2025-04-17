@@ -27,11 +27,50 @@
   --ring: 240 5% 65%;
   
   --radius: 0.5rem;
+
+  /* Light theme colors (existing) */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Dark theme colors */
+  --neutral-dark: 17, 17, 27;
+  --neutral: 75, 85, 99;
+  --neutral-light: 209, 213, 219;
+}
+
+/* Dark mode theme */
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  
+  --primary: 217 91% 60%;
+  --primary-light: 189 94% 43%;
+  
+  --muted: 240 5% 15%;
+  --muted-foreground: 240 5% 65%;
+  
+  --neutral-dark: 222 47% 11%;
+  --neutral: 217 19% 27%;
+  --neutral-light: 210 40% 96.1%;
+  
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
 }
 
 html, body {
   @apply bg-neutral-dark text-white overflow-x-hidden scrollbar-hide scroll-smooth;
   height: 100%;
+}
+
+.dark html, .dark body {
+  @apply bg-gray-900 text-white;
 }
 
 .scrollbar-hide {
@@ -85,4 +124,44 @@ html, body {
 
 .floating-delay-3 {
   animation: float 6s ease-in-out 3s infinite;
+}
+
+@layer base {
+  body {
+    @apply text-neutral-800 dark:text-white;
+  }
+  
+  .dark body {
+    @apply bg-gray-900;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent inline-block;
+  }
+  
+  .bg-neutral-dark {
+    background-color: rgb(var(--neutral-dark));
+  }
+  
+  .text-neutral-light {
+    color: rgb(var(--neutral-light));
+  }
+  
+  .text-neutral {
+    color: rgb(var(--neutral));
+  }
+  
+  .dark .bg-neutral-dark {
+    @apply bg-gray-900;
+  }
+  
+  .dark .text-neutral-light {
+    @apply text-gray-300;
+  }
+  
+  .dark .text-neutral {
+    @apply text-gray-400;
+  }
 }

@@ -4,7 +4,7 @@ import { ShieldCheck, Droplets, Wind } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-blue-600 to-cyan-500 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-700 dark:to-cyan-600 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <motion.div
@@ -29,7 +29,7 @@ const Hero = () => {
               >
                 <span className="text-white drop-shadow-lg">Ocean Breeze</span>
                 <br />
-                <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">Your Space</span>
+                <span className="bg-gradient-to-r from-white to-cyan-200 dark:from-white dark:to-cyan-300 bg-clip-text text-transparent">Your Space</span>
               </motion.h1>
               <motion.div 
                 initial={{ opacity: 0, width: 0 }}
@@ -51,7 +51,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white text-blue-600 font-medium rounded-md shadow-lg hover:shadow-xl transition"
+                className="px-6 py-3 bg-white text-blue-600 dark:bg-white dark:text-blue-700 font-medium rounded-md shadow-lg hover:shadow-xl transition"
               >
                 Get a Free Quote
               </motion.button>
@@ -71,7 +71,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden md:flex justify-center"
           >
-            <div className="bg-white bg-opacity-15 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/20">
+            <div className="bg-white bg-opacity-15 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/20 dark:bg-white/10 dark:border-white/10">
               <div className="grid grid-cols-1 gap-6">
                 <div className="flex items-start space-x-4">
                   <ShieldCheck className="h-8 w-8 text-cyan-200" />
@@ -101,8 +101,8 @@ const Hero = () => {
       </div>
       
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-400 opacity-20 blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/4"></div>
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-cyan-400 opacity-20 blur-3xl rounded-full transform -translate-x-1/3 translate-y-1/4"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-400 opacity-20 blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/4 dark:bg-blue-500 dark:opacity-15"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-cyan-400 opacity-20 blur-3xl rounded-full transform -translate-x-1/3 translate-y-1/4 dark:bg-cyan-500 dark:opacity-15"></div>
     </section>
   );
 };
